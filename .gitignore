@@ -1,0 +1,15 @@
+Continuum/Continuum/Bin/
+Continuum/Continuum/obj/
+Continuum/Continuum/_UpgradeReport_Files
+Continuum/Continuum/PerformanceLogs
+Continuum/ContinuumLib/bin
+Continuum/ContinuumLib/obj
+Continuum/ContinuumLibContent/obj
+*Thumbs.db
+Continuum.suo
+Continuum.v11.suo
+Continuum/Continuum/UpgradeLog.htm
+Continuum/ContinuumLib/ContinuumLib.csproj.Debug.cachefile
+Continuum/ContinuumLib/ContinuumLib.csproj.Release.cachefile
+Continuum/ContinuumLibContent/ContinuumLibContent.contentproj.user
+Continuum/ContinuumLib/ContinuumLib.csproj.user

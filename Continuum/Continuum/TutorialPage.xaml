@@ -1,0 +1,226 @@
+﻿<phone:PhoneApplicationPage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:es="clr-namespace:Microsoft.Expression.Shapes;assembly=Microsoft.Expression.Drawing" 
+    x:Class="Continuum.Tutorial"
+    d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    mc:Ignorable="d"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot contiene la griglia radice in cui viene inserito tutto il resto del contenuto della pagina-->
+    <Grid x:Name="LayoutRoot">
+        <controls:Panorama Title="Tutorial">
+
+            <!--Elemento Panorama uno-->
+            <controls:PanoramaItem Header="movimento">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="96" />
+                            <RowDefinition Height="122" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="78" />
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Left" x:Name="textBlock1" VerticalAlignment="Top" TextWrapping="Wrap" Grid.ColumnSpan="2"><Run Text="Inclina il cellulare per muovere la navicella. Ogni volta che accedi al gioco il dispositivo si calibra automaticamente."/></TextBlock>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Left" x:Name="textBlock2" VerticalAlignment="Top" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="1" Margin="41,30,0,0" Width="332"><Run Text="Per calibrare nuovamente il dispositivo mentre giochi basta che metti in pausa e torni subito al gioco."/></TextBlock>
+                        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="9,9,0,0" x:Name="textBlock3" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="2" Height="83" Width="227" Grid.Column="1"><Run Text="Evita di urtare gli asteroidi e i nemici che incontri per non morire."/></TextBlock>
+                        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="9,17,0,0" x:Name="textBlock4" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="3" Height="83" Width="227" Grid.Column="1"><Run Text="Più a lungo sopravviverai, più alto sarà il tuo punteggio!"/></TextBlock>
+                	    <es:BlockArrow Grid.Column="2" Fill="#FF0056EB" Margin="83,49,0,0" Orientation="Right" Stroke="Black" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="25"/>
+                	    <es:BlockArrow Grid.Column="2" Fill="#FF0056EB" HorizontalAlignment="Left" Height="25" Margin="33,49,0,0" Orientation="Left" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="50"/>
+                	    <es:BlockArrow Grid.Column="2" Fill="#FF0056EB" HorizontalAlignment="Left" Height="50" Margin="71,12,0,0" Orientation="Up" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="25" d:LayoutOverrides="VerticalAlignment"/>
+                	    <es:BlockArrow Grid.Column="2" Fill="#FF0056EB" Height="50" Margin="71,0,74,28" Orientation="Down" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Bottom"/>
+                	    <Image Grid.Column="1" Height="20" Margin="-47,47,17,0" VerticalAlignment="Top"/>
+                	    <Image Grid.Column="2" Margin="59,32,62,44" Source="img/Ship.png" Stretch="Fill" RenderTransformOrigin="0.224,-0.078"/>
+                	    <Image Margin="0,124,4,48" Grid.Row="1" Source="img/easy.png" Stretch="Fill" HorizontalAlignment="Right" Width="58" Grid.RowSpan="2" />
+                	    <Image Margin="20,63,0,0" Grid.Row="2" Source="img/asteroid.png" Stretch="Fill" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28" />
+                	    <Image Margin="59,26,62,32" Grid.Row="3" Source="img/Ship.png" Stretch="Fill"/>
+                	    <Image HorizontalAlignment="Right" Height="20" Margin="0,86,24,0" Grid.Row="2" Source="img/enemyBullet.png" Stretch="Fill" VerticalAlignment="Top" Width="20" Grid.RowSpan="2" />
+                    </Grid>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama due-->
+            <controls:PanoramaItem Header="fuoco">
+                <ScrollViewer>
+                    <Grid Height="600">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="127" />
+                            <RowDefinition Height="91" />
+                            <RowDefinition Height="154*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="78" />
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Left" Margin="13,5,0,0" Name="textBlock5" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="223">
+                            La navicella spara i suoi proiettili automaticamente. L'unica cosa che devi fare è mirare il bersaglio!
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="13,15,0,0" Name="textBlock6" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="223" Grid.Column="1" Grid.Row="1">
+                            Raccogli i power-up lasciati dalle navicelle nemiche per potenziare la tua arma principale
+                        </TextBlock>
+                        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="17,5,0,0" Name="textBlock7" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Row="2">
+                            Il power-up con la 'R' ti permetterà di sparare i missili! Anche questa è un'arma atuomatica.
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="29,18,0,0" Name="textBlock8" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Grid.Row="4" Grid.ColumnSpan="3">
+                            Non farti colpire, altrimenti tutte le tue armi automatiche saranno depotenziate!
+                        </TextBlock>
+                        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="11,9,0,0" Name="textBlock9" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Row="3" Grid.RowSpan="2">
+                            Se collezionerai ulteriori power-up, i tuoi missili saranno potenziati
+                        </TextBlock>
+                        <Image Grid.Column="2" Height="64" Margin="47,0,74,-9" Source="img/Ship.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        <Image Grid.Column="2" HorizontalAlignment="Left" Height="10" Margin="66,60,0,0" Source="img/gunBullet.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        <Image Grid.Column="2" HorizontalAlignment="Left" Height="10" Margin="66,8,0,0" Source="img/gunBullet.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        <Image Margin="-9,15,0,0" Grid.Row="1" Source="img/gunPowerUp.png" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="32"/>
+                        <Image Margin="67,0,54,-4" Grid.Row="1" Source="img/Ship.png" Stretch="Fill" Height="64" VerticalAlignment="Bottom"/>
+                        <Image HorizontalAlignment="Right" Margin="0,61,73,69" Grid.Row="1" Source="img/gunBullet.png" Stretch="Fill" Width="10"/>
+                        <Image Height="10" Margin="0,8,73,0" Grid.Row="1" Source="img/gunBullet.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right" Width="10"/>
+                        <Image HorizontalAlignment="Right" Margin="0,61,50,69" Grid.Row="1" Source="img/gunBullet.png" Stretch="Fill" Width="10"/>
+                        <Image HorizontalAlignment="Left" Margin="64,61,0,69" Grid.Row="1" Source="img/gunBullet.png" Stretch="Fill" Width="10"/>
+                        <Image HorizontalAlignment="Left" Height="10" Margin="26,8,0,0" Grid.Row="1" Source="img/gunBullet.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        <Image HorizontalAlignment="Right" Margin="0,8,14,0" Grid.Row="1" Source="img/gunBullet.png" Stretch="Fill" Width="10" Height="10" VerticalAlignment="Top"/>
+                        <Image Grid.Column="2" Margin="12,0,0,-1" Grid.Row="2" Source="img/rocketPowerUp.png" Stretch="Fill" HorizontalAlignment="Left" Width="32" Height="32" VerticalAlignment="Bottom"/>
+                        <Image Grid.Column="2" Margin="79,34,42,-7" Grid.Row="3" Source="img/Ship.png" Stretch="Fill"/>
+                        <Image Grid.Column="2" HorizontalAlignment="Right" Margin="0,41,57,46" Grid.Row="2" Source="img/rocket.png" Stretch="Fill" Width="10"/>
+                    </Grid>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="granate">
+                <ScrollViewer>
+                    <Grid>
+                    
+                        <TextBlock Height="92" HorizontalAlignment="Left" Margin="5,7,0,0" Name="textBlock10" TextWrapping="Wrap" VerticalAlignment="Top" >
+                            Durante il gioco puoi raccogliere delle granate. 
+                            Premi il pulsante [granata] per entrare in modalità di lancio delle granate.
+                        </TextBlock>
+                        <TextBlock Height="31" HorizontalAlignment="Left" Margin="7,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="407">
+                            Comparirà una griglia verde. A questo punto:
+                        </TextBlock>
+                        <TextBlock Height="84" HorizontalAlignment="Left" Margin="38,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206">
+                            1. Punta il tuo bersaglio mantenendo un dito sullo schermo
+                        </TextBlock>
+                        <TextBlock Height="141" HorizontalAlignment="Left" Margin="191,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227">
+                            2. Sempre mantenendo il primo dito, curva la traiettoria della granata toccando lo schermo con un altro dito.
+                        </TextBlock>
+                        <TextBlock Height="87" HorizontalAlignment="Left" Margin="29,478,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190">
+                            3. Stacca le dita dallo schermo per far partire la granata!
+                        </TextBlock>
+                        <Image HorizontalAlignment="Right" Height="64" Margin="0,0,33,21" Source="img/Ship.png" Stretch="Fill" VerticalAlignment="Bottom" Width="49"/>
+                        <Image Margin="0,149,34,0" Source="img/scope.png" Stretch="Fill" Height="128" VerticalAlignment="Top" HorizontalAlignment="Right" Width="128"/>
+                        <Image HorizontalAlignment="Right" Height="64" Margin="0,179,67,0" Source="img/easy.png" Stretch="Fill" VerticalAlignment="Top" Width="58"/>
+                        <Image Margin="7,0,0,131" Source="img/scope.png" Stretch="Fill" Height="128" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="128"/>
+                        <es:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Margin="0,259.349,-79.437,113.837" Stretch="None" StartAngle="0" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="183.228" Fill="White" Stroke="White">
+                        	<es:Arc.RenderTransform>
+                        		<CompositeTransform Rotation="-139" TranslateX="373.289" ScaleX="4.724" ScaleY="4.35" TranslateY="-19.019" SkewY="-29.188" SkewX="-30"/>
+                        	</es:Arc.RenderTransform>
+                        </es:Arc>
+                        <Image HorizontalAlignment="Right" Height="32" Margin="0,0,127,69" Source="img/plasmagranade.png" Stretch="Fill" VerticalAlignment="Bottom" Width="32"/>
+                    </Grid>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="tachioni">
+                <ScrollViewer>
+                    <Grid>
+                        <TextBlock Height="94" HorizontalAlignment="Left" Margin="98,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318">
+                            Durante il gioco compariranno dei fasci di tachioni. Raccoglili per riempire il tuo serbatoio temporale!
+                        </TextBlock>
+                        <TextBlock Height="94" HorizontalAlignment="Left" Margin="98,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217">
+                            Quando entri nel fascio, il tempo rallenterà per tutti... ma non per te!
+                        </TextBlock>
+                        
+                        <TextBlock Height="137" HorizontalAlignment="Left" Margin="15,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285">
+                            Questo ti permetterà di schivare proiettili più facilmente e compiere più uccisioni, ma funziona solo finchè stai nel raggio di azione dei tachioni!
+                        </TextBlock>
+                        <TextBlock Height="110" HorizontalAlignment="Left" Margin="3,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416">
+                            Puoi riavvolgere il tempo in qualsiasi momento con un flick verso il basso, e interrompere il riavvolgimento toccando lo schermo. Questo farà scaricare il tuo serbatoio temporale.
+                        </TextBlock>
+                        <TextBlock Height="83" HorizontalAlignment="Left" Margin="3,511,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418">
+                            Infine, se vieni distrutto non è finita! Puoi sempre riavvolgere il tempo, ma attenzione a non rimanere a secco di tachioni!
+                        </TextBlock>
+                        <Image HorizontalAlignment="Left" Height="10" Margin="30,16,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        <Image HorizontalAlignment="Left" Height="64" Margin="28,167,0,0" Source="img/Ship.png" Stretch="Fill" VerticalAlignment="Top" Width="49"/>
+                        <Grid HorizontalAlignment="Left" Height="151" Margin="28,20,0,0" VerticalAlignment="Top" Width="36">
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,2,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="0,26,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image Height="10" Margin="16,19,10,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,50,2,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="7,48,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="0,65,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image Height="10" Margin="16,0,10,62" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,0,51" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="5,0,0,27" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image Height="10" Margin="11,0,15,34" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,1,28" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image Height="10" Margin="9,0,17,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Right" Height="151" Margin="0,104,17,0" VerticalAlignment="Top" Width="36">
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,2,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="0,26,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image Height="10" Margin="16,19,10,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,50,2,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="7,48,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="0,65,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image Height="10" Margin="16,0,10,62" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,0,51" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="5,0,0,27" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image Height="10" Margin="11,0,15,34" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,1,28" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image Height="10" Margin="9,0,17,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Right" Margin="0,193,15,250" Width="36">
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,2,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="0,26,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image Height="10" Margin="16,19,10,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,50,2,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="7,48,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="0,65,0,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Top" Width="10"/>
+                        	<Image Height="10" Margin="16,0,10,62" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,0,51" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image HorizontalAlignment="Left" Height="10" Margin="5,0,0,27" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image Height="10" Margin="11,0,15,34" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        	<Image HorizontalAlignment="Right" Height="10" Margin="0,0,1,28" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom" Width="10"/>
+                        	<Image Height="10" Margin="9,0,17,0" Source="img/Tachyon.png" Stretch="Fill" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Image HorizontalAlignment="Right" Height="64" Margin="0,0,75,198" Source="img/Ship.png" Stretch="Fill" VerticalAlignment="Bottom" Width="49"/>
+                        <Image HorizontalAlignment="Right" Margin="0,191,65,0" Source="img/easy.png" Stretch="Fill" Width="58" Height="64" VerticalAlignment="Top"/>
+                        <es:BlockArrow Fill="#FF0056EB" Margin="333.352,307.398,0,0" Orientation="Right" Stroke="Black" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66.264" Height="35.95" RenderTransformOrigin="0.5,0.5">
+                        	<es:BlockArrow.RenderTransform>
+                        		<CompositeTransform Rotation="-31.692"/>
+                        	</es:BlockArrow.RenderTransform>
+                        </es:BlockArrow>
+                        <es:BlockArrow Fill="#FFEB0000" Margin="301.233,262.94,0,0" Orientation="Right" Stroke="Black" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26.252" Height="16.841" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                        	<es:BlockArrow.RenderTransform>
+                        		<CompositeTransform Rotation="108.539"/>
+                        	</es:BlockArrow.RenderTransform>
+                        </es:BlockArrow>
+                        <Image HorizontalAlignment="Right" Margin="0,278,127,289" Source="img/asteroid.png" Stretch="Fill" Width="28"/>
+                        <es:BlockArrow Fill="#FFEB0000" Margin="266.233,312.94,0,0" Orientation="Right" Stroke="Black" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26.252" Height="16.841" RenderTransformOrigin="0.5,0.5">
+                        	<es:BlockArrow.RenderTransform>
+                        		<CompositeTransform Rotation="92.039"/>
+                        	</es:BlockArrow.RenderTransform>
+                        </es:BlockArrow>
+                        <ProgressBar HorizontalAlignment="Left" Height="12" Margin="98,104,0,0" VerticalAlignment="Top" Width="247" Background="Red" Value="65"/>
+                        <es:BlockArrow Fill="#FF0056EB" Margin="234.995,86.977,0,0" Orientation="Right" Stroke="Black" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28.849" Height="14.844" RenderTransformOrigin="0.5,0.5">
+                            <es:BlockArrow.RenderTransform>
+                                <CompositeTransform Rotation="-0.815"/>
+                            </es:BlockArrow.RenderTransform>
+                        </es:BlockArrow>
+                    </Grid>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+
+    <!--Le applicazioni basate su Panorama non devono mostrare un ApplicationBar-->
+
+</phone:PhoneApplicationPage>

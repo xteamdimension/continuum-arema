@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A77C8494-D6E1-4FE8-9D84-856DAA3DAE80}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Continuum</RootNamespace>
+    <AssemblyName>Continuum</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Continuum.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Continuum.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Devices.Sensors" />
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
+    <Reference Include="Microsoft.Xna.Framework.Interop" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppServiceProvider.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Animation.cs" />
+    <Compile Include="Elements\AreaDamage.cs" />
+    <Compile Include="Elements\Asteroid.cs" />
+    <Compile Include="Elements\AsteroidRandomizer.cs" />
+    <Compile Include="Elements\BackgroundTexture.cs" />
+    <Compile Include="Elements\Bullet.cs" />
+    <Compile Include="Elements\TachyonStreamRandomizer.cs" />
+    <Compile Include="Elements\EnemyRandomizer.cs" />
+    <Compile Include="Elements\FollowingRocket.cs" />
+    <Compile Include="Elements\GunBullet.cs" />
+    <Compile Include="Elements\Enemy.cs" />
+    <Compile Include="Elements\PlasmaGranade.cs" />
+    <Compile Include="Elements\PowerUp.cs" />
+    <Compile Include="Elements\Randomizer.cs" />
+    <Compile Include="Elements\Rocket.cs" />
+    <Compile Include="Elements\Tachyon.cs" />
+    <Compile Include="Elements\TachyonStream.cs" />
+    <Compile Include="Elements\TimeTraveler.cs" />
+    <Compile Include="Management\AnimationManager.cs" />
+    <Compile Include="Management\AsteroidsManager.cs" />
+    <Compile Include="Management\BackgroundManager.cs" />
+    <Compile Include="Management\BulletsManager.cs" />
+    <Compile Include="Management\CollisionDetector.cs" />
+    <Compile Include="Management\RandomizerManager.cs" />
+    <Compile Include="Management\EnemyManager.cs" />
+    <Compile Include="Management\InputManager.cs" />
+    <Compile Include="Management\LevelManager.cs" />
+    <Compile Include="Elements\Player.cs" />
+    <Compile Include="Management\PowerUpManager.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Management\TachyonManager.cs" />
+    <Compile Include="Management\TimeMachine.cs" />
+    <Compile Include="Management\TimeManager.cs" />
+    <Compile Include="Credits.xaml.cs">
+      <DependentUpon>Credits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScorePage.xaml.cs">
+      <DependentUpon>ScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scores\Score.cs" />
+    <Compile Include="State\GameState.cs" />
+    <Compile Include="State\PlayerState.cs" />
+    <Compile Include="TutorialPage.xaml.cs">
+      <DependentUpon>TutorialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\BezierPath.cs" />
+    <Compile Include="Utilities\Collisions.cs" />
+    <Compile Include="Utilities\DynamicNormalRandomVariable.cs" />
+    <Compile Include="Utilities\ElementRecord.cs" />
+    <Compile Include="Utilities\LevelElement.cs" />
+    <Compile Include="Utilities\LevelElementAttribute.cs" />
+    <Compile Include="Utilities\LevelReader.cs" />
+    <Compile Include="Utilities\LineRenderer.cs" />
+    <Compile Include="Utilities\NormalRandomVariable.cs" />
+    <Compile Include="Utilities\QuadraticBezierCurve.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
+    <Compile Include="Weapons\Gun.cs" />
+    <Compile Include="Weapons\IWeapons.cs" />
+    <Compile Include="Weapons\RocketLauncher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Credits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TutorialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Font\QUARTZMS.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="img\enemyBullet.png" />
+    <Resource Include="img\gunBullet.png" />
+    <Resource Include="img\plasmagranade.png" />
+    <Resource Include="img\rocket.png" />
+    <Resource Include="img\rocketPowerUp.png" />
+    <Resource Include="img\scope.png" />
+    <Resource Include="img\Tachyon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SplashScreenImage.jpg" />
+    <None Include="Levels\Level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="continuum.jpg" />
+    <None Include="Levels\LevelSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="img\asteroid.png" />
+    <Resource Include="img\easy.png" />
+    <Resource Include="img\gunPowerUp.png" />
+    <Resource Include="img\Ship.png" />
+    <None Include="Levels\RandomLevel.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContinuumLib\ContinuumLib.csproj">
+      <Project>{13E95629-4F54-48DA-B27A-FF6A418A50E7}</Project>
+      <Name>ContinuumLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

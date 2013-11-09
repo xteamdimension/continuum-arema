@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <!-- Definizione dei tipi e dei gruppi di attributi -->
+  <xs:simpleType name="weaponType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Gun" />
+      <xs:enumeration value="RocketLauncher" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="powerupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Gun" />
+      <xs:enumeration value="Rocket" />
+      <xs:enumeration value="PlasmaGranade" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="probability">
+    <xs:restriction base="xs:float">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attributeGroup name="defaultAttributes">
+    <xs:attribute name="timestamp" type="xs:float" use="required" />
+    <xs:attribute name="texture" type="xs:string" use="required" />
+  </xs:attributeGroup>
+  
+  <xs:attributeGroup name="randomizerAttributes">
+    <xs:attributeGroup ref="defaultAttributes" />
+    <xs:attribute name="launchProbabilityPerSecond" type="probability" use="required" />
+    <xs:attribute name="probabilityIncrementPerMinute" type="probability" use="optional" />
+    <xs:attribute name="pobabilityMax" type="probability" use="optional" />
+  </xs:attributeGroup>
+  <!-- Fine definizione dei tipi di attributi -->
+  
+  <!-- level -->
+  <xs:element name="level">
+    <xs:complexType>
+      
+      <!-- Tutti i tag contenuti in level-->
+      <xs:sequence>
+
+        <!-- texturesDeclaration (contiene la dichiarazione di tutte le textures richiamate in startlevel)-->
+        <xs:element name="texturesDeclaration" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+
+              <!-- texture -->
+              <xs:element name="texture" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="path" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+            
+          </xs:complexType>
+        </xs:element>
+        
+        <!-- randomVariablesDeclaration (contiene la dichiarazione di tutte le variabili aleatorie richiamate in startlevel)-->
+        <xs:element name="randomVariablesDeclaration" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+              
+              <!-- randomVariable -->
+              <xs:element name="randomVariable" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="mean" type="xs:float" use="required" />
+                  <xs:attribute name="standardDeviation" type="xs:float" use="required" />
+                  <xs:attribute name="meanIncrementPerMinute" type="xs:float" use="optional" />
+                  <xs:attribute name="maxValue" type="xs:float" use="optional" />
+                  <xs:attribute name="minValue" type="xs:float" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        
+        <!-- startlevel (contiene tutti i tag che generano elementi a runtime)-->
+        <xs:element name="startlevel" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+              <!-- ###############################################################
+              Definire qua tutti i nuovi tipi elementi consentiti dopo startlevel
+              ####################################################################-->
+
+              <!-- backgroundTexture-->
+              <xs:element name="backgroundTexture" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="defaultAttributes" />
+                  <xs:attribute name="level" type="xs:nonNegativeInteger" use="required" />
+                  <xs:attribute name="speed" type="xs:float" use="required" />
+                  <xs:attribute name="transitionTexture" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+
+              <!-- TachyonStream-->
+              <xs:element name="tachyonStream" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="defaultAttributes" />
+                  <xs:attribute name="duration" type="xs:float" use="required" />
+                  <xs:attribute name="xposition" type="xs:integer" use="required" />
+                </xs:complexType>
+              </xs:element>
+              
+              <!-- asteroid -->
+              <xs:element name="asteroid" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="defaultAttributes" />
+                  <xs:attribute name="xposition" type="xs:integer" use="required" />
+                  <xs:attribute name="speed" type="xs:float" use="required" />
+                  <xs:attribute name="life" type="xs:nonNegativeInteger" use="required" />
+                </xs:complexType>
+              </xs:element>
+              
+              <!-- animation -->
+              <xs:element name="animation" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="defaultAttributes" />
+                  <xs:attribute name="x" type="xs:integer" use="required" />
+                  <xs:attribute name="y" type="xs:integer" use="required" />
+                  <xs:attribute name="frames" type="xs:nonNegativeInteger" use="required" />
+                  <xs:attribute name="rows" type="xs:nonNegativeInteger" use="required" />
+                  <xs:attribute name="cols" type="xs:nonNegativeInteger" use="required" />
+                  <xs:attribute name="fps" type="xs:nonNegativeInteger" use="required" />
+                  <xs:attribute name="rotation" type="xs:float" use="required" />
+                  <xs:attribute name="rotationspeed" type="xs:float" use="required" />
+                </xs:complexType>
+              </xs:element>
+
+              <!-- enemy -->
+              <xs:element name="enemy" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="defaultAttributes" />
+                  <xs:attribute name="x" type="xs:integer" use="required" />
+                  <xs:attribute name="y" type="xs:integer" use="required" />
+                  <xs:attribute name="speed" type="xs:float" use="required" />
+                  <xs:attribute name="weapon" type="weaponType" use="required" />
+                  <xs:attribute name="life" type="xs:nonNegativeInteger" use="required" />
+                  <xs:attribute name="powerup" type="powerupType" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              
+              <!-- enemyRandomizer -->
+              <xs:element name="enemyRandomizer" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="randomizerAttributes" />
+                  <xs:attribute name="weapon" type="weaponType" use="required" />
+                  <xs:attribute name="powerUpProbabilityPerLaunch" type="probability" use="optional" />
+                  <xs:attribute name="rocketPowerUpProbability" type="probability" use="optional" />
+                  <xs:attribute name="granadePowerUpProbability" type="probability" use="optional" />
+                  <xs:attribute name="speedRandomVariable" type="xs:string" use="required" />
+                  <xs:attribute name="lifeRandomVariable" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              
+              <!-- asteroidRandomizer -->
+              <xs:element name="asteroidRandomizer" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="randomizerAttributes" />
+                  <xs:attribute name="speedRandomVariable" type="xs:string" use="required" />
+                  <xs:attribute name="lifeRandomVariable" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+
+              <!-- tachyonStreamRandomizer -->
+              <xs:element name="tachyonStreamRandomizer" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attributeGroup ref="randomizerAttributes" />
+                  <xs:attribute name="durationRandomVariable" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        <!--Fine di startlevel-->
+        
+        <xs:element name="endlevel" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <!-- Fine dei tag contenuti in level-->
+      
+      <!-- Attributi di level -->
+      <xs:attribute name="title" type="xs:string" use="required" />
+      <xs:attribute name="subtitle" type="xs:string" use="required" />
+      <xs:attribute name="duration" type="xs:nonNegativeInteger" use="required" />
+      <xs:attribute name="numlevels" type="xs:nonNegativeInteger" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <!-- Fine di level-->
+  
+</xs:schema>
