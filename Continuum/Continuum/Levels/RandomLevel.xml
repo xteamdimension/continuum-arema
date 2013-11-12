@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-1" ?>
 <level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LevelSchema.xsd" 
-       title="CONTINUUM" subtitle="finira prima o poi..." duration="0" numlevels="1">
+       title="CONTINUUM" subtitle="finira prima o poi..." duration="0" numlevels="2">
 
   <texturesDeclaration>
     <texture id="playership" path="Ships/ship" />
-    <texture id="roccia" path="Backgrounds/background_roccia"/>
+    <texture id="stars" path="Backgrounds/stars"/>
     <texture id="gunbullet" path="Weapons/gunBullet"/>
     <texture id="enemybullet" path="Weapons/enemyBullet"/>
     <texture id="shadow" path="Effects/shadowcorner"/>
@@ -37,7 +37,8 @@
   </randomVariablesDeclaration>
 
   <startlevel>
-    <backgroundTexture timestamp="0" texture="roccia" level="0" speed="200"/>
+    <backgroundTexture timestamp="0" texture="stars" level="0" speed="200"/>
+    <backgroundTexture timestamp="0" texture="stars" level="1" speed="221"/>
     <asteroidRandomizer timestamp="5" texture="asteroid" launchProbabilityPerSecond="0.08" probabilityIncrementPerMinute="0.05" 
                         pobabilityMax="0.2" lifeRandomVariable="asteroidLife" speedRandomVariable="asteroidSpeed" />
     <enemyRandomizer timestamp="10" texture="enemyeasy" launchProbabilityPerSecond="0.1" probabilityIncrementPerMinute="0.1"
