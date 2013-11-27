@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Continuum.State;
+using Continuum.Utilities;
+using System;
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.Xml.Serialization;
 
 namespace Continuum.Scores
 {
@@ -109,6 +114,75 @@ namespace Continuum.Scores
             {
                 e.ToString();
                 return -1;
+            }
+        }
+
+        public static Score[] ReadScores()
+        {
+            Score[] scores = null;
+            using (IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                if (storage.FileExists("scores.xml"))
+                {
+                    //Recupero gli score che già ci sono                   
+                    IsolatedStorageFileStream stream = storage.OpenFile("scores.xml", FileMode.Open, FileAccess.Read);
+                    XmlSerializer serializer = new XmlSerializer(typeof(Score[]));
+                    scores = (Score[])serializer.Deserialize(stream);
+                    stream.Close();
+                }
+            }
+
+            return scores;
+        }
+
+        public static Score[] WriteScores(float time, string name)
+        {
+            Score[] scores;
+            using (IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                //QUI IL FILE DEVE ESISTERE CAZZO NEGRO
+                if (storage.FileExists("scores.xml"))
+                {
+                    //Recupero gli score che già ci sono                   
+                    IsolatedStorageFileStream stream = storage.OpenFile("scores.xml", FileMode.Open, FileAccess.Read);
+                    XmlSerializer serializer = new XmlSerializer(typeof(Score[]));
+                    scores = (Score[])serializer.Deserialize(stream);
+                    stream.Close();
+
+                    //Elimino il file per evitare problemi di scrittura
+                    storage.DeleteFile("scores.xml");
+
+                    //Scrivo
+                    stream = storage.OpenFile("scores.xml", FileMode.OpenOrCreate, FileAccess.Write);
+
+                    Score[] tmp = new Score[scores.Length + 1];
+
+                    System.Array.Copy(scores, tmp, scores.Length);
+
+                    tmp[scores.Length] = new Score(TimeSpan.FromSeconds(time), name);
+
+                    Array.Sort(tmp);
+
+                    if (tmp.Length > Constants.MAX_SCORES)
+                    {
+                        Score[] tmp2 = new Score[tmp.Length - 1];
+                        Array.Copy(tmp, tmp2, tmp2.Length);
+                        tmp = tmp2;
+                    }
+
+                    serializer.Serialize(stream, tmp);
+                    stream.Close();
+                }
+                else
+                {
+                    IsolatedStorageFileStream stream = storage.OpenFile("scores.xml", FileMode.Create);
+                    XmlSerializer serializer = new XmlSerializer(typeof(Score[]));
+                    scores = new Score[1];
+                    scores[0] = new Score(TimeSpan.FromSeconds(time), name);
+                    serializer.Serialize(stream, scores);
+                    stream.Close();
+                }
+                return scores;
             }
         }
     }

@@ -12,7 +12,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
     shell:SystemTray.IsVisible="False">
-    
+
     <!--No XAML content is required as the page is rendered entirely with the XNA Framework-->
     <Grid Name="grid1" >
         <Grid.RowDefinitions>
@@ -23,5 +23,9 @@
         </Grid.RowDefinitions>
         <Button Content="GRANADE" Grid.Row="2" Height="69" Margin="0,343,247,0" Name="buttonLastChance" VerticalAlignment="Top" Click="buttonLastChance_Click" />
         <ProgressBar x:Name="TimeTankBar" HorizontalAlignment="Left" Height="11" Margin="44,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="387" />
+        <Rectangle x:Name="EndRectangle" Fill="#7F000000" HorizontalAlignment="Left" Height="800" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Top" Width="480" Visibility="Collapsed"/>
+        <TextBox x:Name="NameEndTextBox" HorizontalAlignment="Left" Height="72" Margin="10,143,0,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="Player" VerticalAlignment="Top" Width="470" Visibility="Collapsed"/>
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="70" Margin="295,202,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="185" Click="SaveButton_Click" Visibility="Collapsed"/>
+        <Button x:Name="CancelButton" Content="Back" HorizontalAlignment="Left" Height="70" Margin="10,202,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="185" Click="CancelButton_Click" Visibility="Collapsed"/>
     </Grid>
 </phone:PhoneApplicationPage>

@@ -216,6 +216,8 @@ namespace Continuum.Utilities
         /// Il numero massimo di lanci contemporanei che può eseguire un Randomizer
         /// </summary>
         public const int MAX_RANDOMIZER_LAUNCHES = 1;
+
+        public const int MAX_NAME_LENGTH = 15;
     }
 
     /// <summary>
