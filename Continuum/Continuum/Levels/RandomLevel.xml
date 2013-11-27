@@ -9,7 +9,6 @@
     <texture id="enemybullet" path="Weapons/enemyBullet"/>
     <texture id="shadow" path="Effects/shadowcorner"/>
     <texture id="asteroid" path="Asteroids/asteroid"/>
-    <texture id="damagesmoke" path="Animations/animation" />
     <texture id="explosionParticle1" path="Effects/explosionParticle1"/>
     <texture id="explosionParticle2" path="Effects/explosionParticle2"/>
     <texture id="explosionParticle3" path="Effects/explosionParticle3"/>

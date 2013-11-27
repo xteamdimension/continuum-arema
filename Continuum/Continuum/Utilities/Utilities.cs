@@ -57,9 +57,10 @@ namespace Continuum.Utilities
         public static float TIME_TANK_CRITICAL_VALUE = 0.555f;
 
         /// <summary>
-        /// Il tempo che intercorre tra la creazione di una Smoke Animation e un'altra
+        /// Il tempo che intercorre tra la creazione di una 
+        /// Animation e un'altra
         /// </summary>
-        public const float SMOKE_DELAY = 0.04f;
+        //public const float SMOKE_DELAY = 0.04f;
 
         /// <summary>
         /// Il valore di Delta oltre il quale una Rock deve cessare di esistere
@@ -368,7 +369,7 @@ namespace Continuum.Utilities
         /// <summary>
         /// Animazione fumo dovuto al danneggiamento
         /// </summary>
-        public const string ANIMATION_DAMAGESMOKE = "damagesmoke";
+        //public const string ANIMATION_DAMAGESMOKE = "damagesmoke";
 
         /// <summary>
         /// Animazione stream di tachioni

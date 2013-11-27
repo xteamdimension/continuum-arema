@@ -16,8 +16,8 @@ namespace Continuum.Elements
         public BezierPath trajectory;
         public int life;
         public int BoundDamaged;
-        public float smokeWait = Constants.SMOKE_DELAY;
-        public float smokeTime;
+        //public float smokeWait = Constants.SMOKE_DELAY;
+        //public float smokeTime;
         public PowerUpType powerUpType;
 
         /// <summary>
@@ -71,20 +71,22 @@ namespace Continuum.Elements
                     NextPosition = trajectory.NextPosition(Delta);
                 Weapon.Update(NextPosition);
 
-                if (lifeState == LifeState.DAMAGED)
-                {
-                    if (gs.levelTime.continuum > 0)
-                    {
-                        if (smokeWait >= Constants.SMOKE_DELAY)
-                        {
-                            smokeTime = gs.levelTime.time;
-                            gs.newAnimation(NextPosition,TextureConstant.ANIMATION_DAMAGESMOKE, 117, 11, 10, 50, (float)Utility.NextRandom(0f, (float)Math.PI * 2), 1); 
-                            smokeWait = 0;
-                        }
-                        else
-                            smokeWait += gs.levelTime.time - smokeTime;
-                    }
-                }
+                // Emette il fumo. E' commentata perchè con la nuova grafica il fumo non esiste più.
+                //
+                //if (lifeState == LifeState.DAMAGED)
+                //{
+                //    if (gs.levelTime.continuum > 0)
+                //    {
+                //        if (smokeWait >= Constants.SMOKE_DELAY)
+                //        {
+                //            smokeTime = gs.levelTime.time;
+                //            gs.newAnimation(NextPosition,TextureConstant.ANIMATION_DAMAGESMOKE, 117, 11, 10, 50, (float)Utility.NextRandom(0f, (float)Math.PI * 2), 1); 
+                //            smokeWait = 0;
+                //        }
+                //        else
+                //            smokeWait += gs.levelTime.time - smokeTime;
+                //    }
+                //}
             }
             return NextPosition;            
         }

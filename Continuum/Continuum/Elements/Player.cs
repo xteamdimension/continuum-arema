@@ -16,7 +16,7 @@ namespace Continuum.Elements
         public float timeinterpolation;
         public float deathTime;
 
-        public float smokeWait = Constants.SMOKE_DELAY;
+        //public float smokeWait = Constants.SMOKE_DELAY;
 
         public int TextureIndex { get; set; }
 
@@ -56,16 +56,18 @@ namespace Continuum.Elements
                     }
 
                     //UPDATE SMOKE
-                    if (gs.playerLifeState == LifeState.DAMAGED)
-                    {
-                        if (smokeWait >= Constants.SMOKE_DELAY)
-                        {
-                            gs.newAnimation(gs.playerPosition, TextureConstant.ANIMATION_DAMAGESMOKE, 117, 11, 10, 50, Utility.NextRandom(0, 2 * MathHelper.Pi), 1);
-                            smokeWait = 0;
-                        }
-                        else
-                            smokeWait += gs.playerTime.elapsedContinuumTime;
-                    }
+                    // E' commentata perchè con la grafica il fumo non esiste più
+                    //
+                    //if (gs.playerLifeState == LifeState.DAMAGED)
+                    //{
+                    //    if (smokeWait >= Constants.SMOKE_DELAY)
+                    //    {
+                    //        gs.newAnimation(gs.playerPosition, TextureConstant.ANIMATION_DAMAGESMOKE, 117, 11, 10, 50, Utility.NextRandom(0, 2 * MathHelper.Pi), 1);
+                    //        smokeWait = 0;
+                    //    }
+                    //    else
+                    //        smokeWait += gs.playerTime.elapsedContinuumTime;
+                    //}
 
                     //UPDATE POSIZIONE
                     gs.playerPosition.X = MathHelper.Clamp(gs.playerPosition.X + (input.AccelerometerReadingCorrected.X * 800 * gs.playerTime.elapsedContinuumTime), 0, Constants.SCREEN_WIDTH);
@@ -106,13 +108,13 @@ namespace Continuum.Elements
                     gs.playerRocketLauncher.Update(gs.playerPosition);
 
                     //REWIND SMOKE
-                    if (smokeWait <= 0)
-                        smokeWait = Constants.SMOKE_DELAY;
-                    else
-                        if (gs.playerLifeState != LifeState.DAMAGED)
-                            smokeWait = Constants.SMOKE_DELAY;
-                        else
-                            smokeWait -= gs.playerTime.elapsedContinuumTime;
+                    //if (smokeWait <= 0)
+                    //    smokeWait = Constants.SMOKE_DELAY;
+                    //else
+                    //    if (gs.playerLifeState != LifeState.DAMAGED)
+                    //        smokeWait = Constants.SMOKE_DELAY;
+                    //    else
+                    //        smokeWait -= gs.playerTime.elapsedContinuumTime;
 
                     if (gs.playerStates.Count > 0)
                     {
