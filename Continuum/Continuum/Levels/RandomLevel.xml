@@ -10,7 +10,9 @@
     <texture id="shadow" path="Effects/shadowcorner"/>
     <texture id="asteroid" path="Asteroids/asteroid"/>
     <texture id="damagesmoke" path="Animations/animation" />
-    <texture id="explosion" path="Animations/explosion"/>
+    <texture id="explosionParticle1" path="Effects/explosionParticle1"/>
+    <texture id="explosionParticle2" path="Effects/explosionParticle2"/>
+    <texture id="explosionParticle3" path="Effects/explosionParticle3"/>
     <texture id="enemyeasy" path="Enemies/easy" />
     <texture id="enemynormal" path="Enemies/normal"/>
     <texture id="tachyonstream" path="Animations/TachyonStream"/>

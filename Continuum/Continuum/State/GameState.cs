@@ -27,6 +27,7 @@ namespace Continuum.State
         public LinkedList<PlayerState> playerStates;
         public LinkedList<PowerUp> powerUps;
         public LinkedList<Randomizer> randomizers;
+        public LinkedList<ExplosionParticle> explosionParticles;
         public TachyonStream tachyonStream;
         public Gun playerGun;
         public RocketLauncher playerRocketLauncher;
@@ -153,6 +154,7 @@ namespace Continuum.State
             animations = new LinkedList<Animation>();
             powerUps = new LinkedList<PowerUp>();
             randomizers = new LinkedList<Randomizer>();
+            explosionParticles = new LinkedList<ExplosionParticle>();
             playerPosition = new Vector2(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
             levelPosition = 0;
             levelFramesWaited = 0;
@@ -306,6 +308,18 @@ namespace Continuum.State
             TachyonStream ts = new TachyonStream(xPosition, duration, sequenceTexture, this);
             animations.AddLast(ts);
             tachyonStream = ts;
+        }
+
+        /// <summary>
+        /// Crea un'esplosione (che non fa danno)
+        /// </summary>
+        /// <param name="position">La posizione dell'esplosione</param>
+        public void newExplosion(Vector2 position)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                explosionParticles.AddLast(new ExplosionParticle(position, this));
+            }
         }
 
         /// <summary>

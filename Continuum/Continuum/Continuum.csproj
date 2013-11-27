@@ -81,6 +81,7 @@
     <Compile Include="Elements\AsteroidRandomizer.cs" />
     <Compile Include="Elements\BackgroundTexture.cs" />
     <Compile Include="Elements\Bullet.cs" />
+    <Compile Include="Elements\ExplosionParticle.cs" />
     <Compile Include="Elements\TachyonStreamRandomizer.cs" />
     <Compile Include="Elements\EnemyRandomizer.cs" />
     <Compile Include="Elements\FollowingRocket.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Management\BackgroundManager.cs" />
     <Compile Include="Management\BulletsManager.cs" />
     <Compile Include="Management\CollisionDetector.cs" />
+    <Compile Include="Management\ExplosionParticleManager.cs" />
     <Compile Include="Management\RandomizerManager.cs" />
     <Compile Include="Management\EnemyManager.cs" />
     <Compile Include="Management\InputManager.cs" />

@@ -61,6 +61,7 @@ namespace Continuum
         public CollisionDetector collisionDetector;
         public PowerUpManager powerUpManager;
         public RandomizerManager randomizerManager;
+        public ExplosionParticleManager explosionParticleManager;
         public Player player;
 
         //Font
@@ -116,6 +117,7 @@ namespace Continuum
             powerUpManager = new PowerUpManager(gs);
             collisionDetector = new CollisionDetector(gs);
             randomizerManager = new RandomizerManager(gs);
+            explosionParticleManager = new ExplosionParticleManager(gs);
 
             player = new Player(gs);
 
@@ -264,6 +266,7 @@ namespace Continuum
                 powerUpManager.Update();
                 collisionDetector.Update();
                 randomizerManager.Update();
+                explosionParticleManager.Update();
             }
             else
             {
@@ -393,6 +396,12 @@ namespace Continuum
                 if (x.lifeState != LifeState.DEAD)
                 {
                     spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, timeColor, x.Rotation, x.Origin, SpriteEffects.None, 0);
+                }
+
+            foreach (ExplosionParticle x in gs.explosionParticles)
+                if (x.lifeState != LifeState.DEAD)
+                {
+                    spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, timeColor * x.Alpha, x.Rotation, x.Origin, SpriteEffects.None, 0);
                 }
 
             //Se ci sono da disegnare le linee

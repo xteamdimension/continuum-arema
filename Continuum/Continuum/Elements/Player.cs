@@ -162,7 +162,7 @@ namespace Continuum.Elements
                     gs.playerLifeState = LifeState.DAMAGED;
                 else if (gs.PlayerLife == 0 && gs.playerLifeState != LifeState.DEAD && gs.playerLifeState != LifeState.DELETING)
                 {
-                    gs.newAreaDamage(gs.playerPosition, TextureConstant.ANIMATION_EXPLOSION, 100, 10, 10, 2, 128, 1);
+                    gs.newExplosion(gs.playerPosition);
                     gs.playerLifeState = LifeState.DEAD;
                     gs.timeState = TimeState.FORWARD;
                 }

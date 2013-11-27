@@ -48,6 +48,7 @@ namespace Continuum.Elements
             if (life <= 0)
             {
                 lifeState = LifeState.DEAD;
+                gs.newExplosion(CurrentPosition);
                 if (powerUpType != PowerUpType.NONE)
                     gs.newPowerUp(CurrentPosition, powerUpType);
             }
