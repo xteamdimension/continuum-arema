@@ -269,55 +269,10 @@ namespace Continuum
             {
                 if (!morto)
                 {
-                    //Scores
-                    using (IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication())
-                    {
-                        //QUI IL FILE DEVE ESISTERE CAZZO NEGRO
-                        if (storage.FileExists("scores.xml"))
-                        {
-                            //Recupero gli score che già ci sono                   
-                            IsolatedStorageFileStream stream = storage.OpenFile("scores.xml", FileMode.Open, FileAccess.Read);
-                            XmlSerializer serializer = new XmlSerializer(typeof(Score[]));
-                            scores = (Score[])serializer.Deserialize(stream);
-                            stream.Close();
-
-                            //Elimino il file per evitare problemi di scrittura
-                            storage.DeleteFile("scores.xml");
-
-                            //Scrivo
-                            stream = storage.OpenFile("scores.xml", FileMode.OpenOrCreate, FileAccess.Write);
-
-                            Score[] tmp = new Score[scores.Length + 1];
-
-                            System.Array.Copy(scores, tmp, scores.Length);
-
-                            tmp[scores.Length] = new Score(TimeSpan.FromSeconds(gs.playerTime.time));
-
-                            Array.Sort(tmp);
-
-                            if (tmp.Length > Constants.MAX_SCORES)
-                            {
-                                Score[] tmp2 = new Score[tmp.Length - 1];
-                                Array.Copy(tmp, tmp2, tmp2.Length);
-                                tmp = tmp2;
-                            }
-
-                            serializer.Serialize(stream, tmp);
-                            stream.Close();
-                        }
-                        else
-                        {
-                            IsolatedStorageFileStream stream = storage.OpenFile("scores.xml", FileMode.Create);
-                            XmlSerializer serializer = new XmlSerializer(typeof(Score[]));
-                            scores = new Score[1];
-                            scores[0] = new Score(TimeSpan.FromSeconds(gs.playerTime.time));
-                            serializer.Serialize(stream, scores);
-                            stream.Close();
-                        }
-                    }
-
-                    MessageBox.Show("LOL FAGGOT U DEAD");
-                    OnBackKeyPress(new System.ComponentModel.CancelEventArgs(false));
+                    EndRectangle.Visibility = System.Windows.Visibility.Visible;
+                    NameEndTextBox.Visibility = System.Windows.Visibility.Visible;
+                    SaveButton.Visibility = System.Windows.Visibility.Visible;
+                    CancelButton.Visibility = System.Windows.Visibility.Visible;
                 }
                 morto = true;
             }
@@ -491,6 +446,35 @@ namespace Continuum
         {
             if (gs.granadeNumber > 0)
                 timeManager.ActivatePlasmaGranadeLauncher();
+        }
+
+        /// <summary>
+        /// Save button click handle 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = NameEndTextBox.Text;
+
+            if (name.Length > Utilities.Constants.MAX_NAME_LENGTH)
+                name = name.Substring(0, Utilities.Constants.MAX_NAME_LENGTH);
+
+            if (name.Trim() == "")
+                name = "Player";
+
+            scores = Score.WriteScores(gs.playerTime.time, name);
+            OnBackKeyPress(new System.ComponentModel.CancelEventArgs(false));
+        }
+
+        /// <summary>
+        /// Cancel button click handle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            OnBackKeyPress(new System.ComponentModel.CancelEventArgs(false));
         }
     }
 }
