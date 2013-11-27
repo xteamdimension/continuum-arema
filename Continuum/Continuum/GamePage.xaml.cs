@@ -350,7 +350,8 @@ namespace Continuum
             foreach (Enemy x in gs.enemies)
                 if (x.lifeState != LifeState.DEAD)
                 {
-                    spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, timeColor, x.Rotation, x.Origin, SpriteEffects.None, 0);
+                    Color enemyColor = new Color(timeColor.ToVector3() * x.LifeColor.ToVector3());
+                    spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, enemyColor, x.Rotation, x.Origin, SpriteEffects.None, 0);
                 }
 
             foreach (ExplosionParticle x in gs.explosionParticles)

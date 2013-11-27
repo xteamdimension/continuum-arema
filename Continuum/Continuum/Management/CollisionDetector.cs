@@ -105,6 +105,11 @@ namespace Continuum.Management
                                     gs.collisions.GetElementAt(i).HasCollided(((Bullet)(gs.collisions.GetElementAt(j))).damage, null);
                                     gs.collisions.GetElementAt(j).HasCollided(0, null);
                                 }
+                                else if (gs.collisions.GetElementAt(j) is ExplosionParticle)     //collisione tra asteroide e explosionParticle
+                                {
+                                    gs.collisions.GetElementAt(i).HasCollided(Constants.EXPLOSION_PARTICLE_DAMAGE, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(0, null);
+                                }
                             }
                             else if (gs.collisions.GetElementAt(i) is Enemy)                        //controllo di collisioni con enemies
                             {
@@ -122,6 +127,11 @@ namespace Continuum.Management
                                         gs.collisions.GetElementAt(j).HasCollided(0, null);
                                     }
                                 }
+                                else if (gs.collisions.GetElementAt(j) is ExplosionParticle)                //collisione tra enemy e bullet
+                                {
+                                    gs.collisions.GetElementAt(i).HasCollided(Constants.EXPLOSION_PARTICLE_DAMAGE, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(0, null);
+                                }
                             }
                             else if (gs.collisions.GetElementAt(i) is Bullet)                    //controllo di collisioni su gunbullets
                             {
@@ -138,14 +148,14 @@ namespace Continuum.Management
                                         gs.collisions.GetElementAt(j).HasCollided(((Bullet)(gs.collisions.GetElementAt(i))).damage, null);
                                     }
                                 }
-                                else if (gs.collisions.GetElementAt(j) is Bullet)                //collisione tra bullet e bullet
-                                {
-                                    if (((Bullet)(gs.collisions.GetElementAt(i))).isPlayerBullet != ((Bullet)(gs.collisions.GetElementAt(j))).isPlayerBullet) //se i gunbullets sono di due proprietari diversi si spaccano a vicenda
-                                    {
-                                        //gs.collisions.GetElementAt(i).HasCollided(0, gs.collisions.GetElementAt(j));
-                                        //gs.collisions.GetElementAt(j).HasCollided(0, gs.collisions.GetElementAt(i));
-                                    }
-                                }
+                                //else if (gs.collisions.GetElementAt(j) is Bullet)                //collisione tra bullet e bullet
+                                //{
+                                //    if (((Bullet)(gs.collisions.GetElementAt(i))).isPlayerBullet != ((Bullet)(gs.collisions.GetElementAt(j))).isPlayerBullet) //se i gunbullets sono di due proprietari diversi si spaccano a vicenda
+                                //    {
+                                //        gs.collisions.GetElementAt(i).HasCollided(0, gs.collisions.GetElementAt(j));
+                                //        gs.collisions.GetElementAt(j).HasCollided(0, gs.collisions.GetElementAt(i));
+                                //    }
+                                //}
                             }
                         }
                         j++;

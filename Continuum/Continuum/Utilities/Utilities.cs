@@ -15,7 +15,9 @@ namespace Continuum.Utilities
     /// Contenitore di tutte le costanti di gioco.
     /// </summary>
     static class Constants
-    {        
+    {
+        public const int EXPLOSION_PARTICLE_DAMAGE = 3;
+
         /// <summary>
         /// Indica il numero massimo di punteggi da salvare nell'Isolated Storage.
         /// </summary>
@@ -366,7 +368,7 @@ namespace Continuum.Utilities
         /// <summary>
         /// Animazione esplosione
         /// </summary>
-        public const string ANIMATION_EXPLOSION = "explosion";
+        //public const string ANIMATION_EXPLOSION = "explosion";
 
         /// <summary>
         /// Animazione fumo dovuto al danneggiamento

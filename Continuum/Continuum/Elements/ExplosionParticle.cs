@@ -35,6 +35,10 @@ namespace Continuum.Elements
             return startPosition + Direction * Delta;
         }
 
-        public override void HasCollided(int Value, object Arg) { }
+        public override void HasCollided(int Value, object Arg) 
+        {
+            if (lifeState != LifeState.DEAD)
+                lifeState = LifeState.DEAD;
+        }
     }
 }

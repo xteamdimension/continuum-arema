@@ -19,6 +19,7 @@ namespace Continuum.Elements
         //public float smokeWait = Constants.SMOKE_DELAY;
         //public float smokeTime;
         public PowerUpType powerUpType;
+        public Color LifeColor { get; private set; }
 
         /// <summary>
         /// Inizializza una nuova istanza per un nuovo nemico
@@ -37,6 +38,7 @@ namespace Continuum.Elements
             InitializeTimeTraveler(StartPosition, Speed, Texture, gameState);
             this.BoundDamaged = (int) (this.life * Constants.CRITICAL_BOUND_DAMAGE);
             this.powerUpType = PowerUpType;
+            this.LifeColor = Color.White;
         }
 
         public Enemy() { }
@@ -71,6 +73,11 @@ namespace Continuum.Elements
                     NextPosition = trajectory.NextPosition(Delta);
                 Weapon.Update(NextPosition);
 
+                if (lifeState == LifeState.DAMAGED)
+                {
+                    float intensity = (float)life / BoundDamaged;
+                    LifeColor = new Color(new Vector3(1f,intensity,intensity));
+                }
                 // Emette il fumo. E' commentata perchè con la nuova grafica il fumo non esiste più.
                 //
                 //if (lifeState == LifeState.DAMAGED)
