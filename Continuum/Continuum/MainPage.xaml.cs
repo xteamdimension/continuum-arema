@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Continuum.Management;
 
 namespace Continuum
 {
@@ -20,7 +21,7 @@ namespace Continuum
         // Constructor
         public MainPage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)

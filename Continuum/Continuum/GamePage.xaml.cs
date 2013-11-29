@@ -328,6 +328,7 @@ namespace Continuum
 
             foreach (Animation x in gs.animations)
                 if (x.lifeState != LifeState.DEAD)
+
                 {
                     spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, timeColor, x.Rotation, x.Origin, SpriteEffects.None, 0);
                 }

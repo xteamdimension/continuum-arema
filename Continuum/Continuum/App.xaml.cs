@@ -12,6 +12,8 @@ using System.IO.IsolatedStorage;
 using Continuum.Elements;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Media;
+using Continuum.Management;
 
 namespace Continuum
 {
@@ -87,6 +89,17 @@ namespace Continuum
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+
+            if (MediaPlayer.GameHasControl)
+            {
+                Song music = Content.Load<Song>("Sounds/continuum");
+                FrameworkDispatcher.Update();
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(music);
+            }
+            SoundManager.Initialize(Content);
+            SoundManager.LoadSound("");
+            SoundManager.LoadSound("");
         }
 
         /// <summary>

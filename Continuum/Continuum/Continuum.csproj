@@ -109,6 +109,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Management\SoundManager.cs" />
     <Compile Include="Management\TachyonManager.cs" />
     <Compile Include="Management\TimeMachine.cs" />
     <Compile Include="Management\TimeManager.cs" />
