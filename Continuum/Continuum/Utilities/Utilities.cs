@@ -172,7 +172,7 @@ namespace Continuum.Utilities
         /// <summary>
         /// Colore per il viaggio indietro nel tempo.
         /// </summary>
-        public static Color BACK_IN_TIME_COLOR = new Color(100, 105, 150);
+        public static Color BACK_IN_TIME_COLOR = new Color(143, 193, 209);
 
         /// <summary>
         /// Durata in secondi del nero iniziale, che mostra titolo e sottotitolo del livello.
