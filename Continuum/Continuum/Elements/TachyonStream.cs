@@ -12,7 +12,7 @@ namespace Continuum.Elements
         public float Falloff;
 
         public TachyonStream(int XPosition, float Duration, string SequenceTexture, GameState gameState) 
-            : base(new Vector2(XPosition, Constants.SCREEN_HEIGHT / 2), SequenceTexture, 100, 4, 25, (int)(100/Duration), 0, 0, gameState)
+            : base(new Vector2(XPosition, Constants.SCREEN_HEIGHT / 2), SequenceTexture, 40, 2, 20, (int)(40*3/Duration), 3, 0, 0, gameState)
         {
             this.Duration = Duration;
             Wait = 0;

@@ -6,8 +6,19 @@ namespace Continuum.Elements
 {
     public class Tachyon : TimeTraveler
     {
+        private float scale;
+
+        public override Rectangle DestinationRectangle
+        {
+            get
+            {
+                return Utility.newRectangleFromCenterPosition(new Vector2((int)CurrentPosition.X, (int)CurrentPosition.Y), (int)(Width * scale), (int)(Height * scale));
+            }
+        }
+
         public Tachyon(int XPosition, float Speed, string TextureName, GameState gameState)
         {
+            scale = Utility.NextRandom(0.5f, 1f);
             InitializeTimeTraveler(new Vector2(XPosition, 0), Speed, TextureName, gameState);
         }
 

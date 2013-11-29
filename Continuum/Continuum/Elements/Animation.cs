@@ -20,6 +20,8 @@ namespace Continuum.Elements
         public int Row;
         public int Col;
         public float StretchRatio;
+        public int Cycles;
+        private int cycleCounter;
 
         /// <summary>
         /// Ridefinisce DestinationRectangle di Time Traveler per permettere anche alle animazioni di essere renderizzate Stretchate.
@@ -34,7 +36,7 @@ namespace Continuum.Elements
         }
 
         /// <summary>
-        /// Inizializza una nuova istanza della classe Animation
+        /// Inizializza una Animation
         /// </summary>
         /// <param name="Position">La posizione della texture</param>
         /// <param name="SequenceTexture">Il nome della texture con la sequenza di frame</param>
@@ -43,9 +45,34 @@ namespace Continuum.Elements
         /// <param name="NumberOfCols">Il numero di colonne della matrice di frame</param>
         /// <param name="FramePerSecond">Il numero di frame al secondo</param>
         /// <param name="RotationStartRadiant">Posizione di partenza della rotazione in radianti</param>
+        /// <param name="RotationSpeed">La velocità di rotazione</param>
         /// <param name="ScalingPercentage">Percentuale di scaling</param>
         /// <param name="gameState">Il Game State</param>
         public Animation(Vector2 Position, string SequenceTexture, int NumberOfFrames, int NumberOfRows, int NumberOfCols, int FramePerSecond, float RotationStartRadiant, float RotationSpeed, GameState gameState)
+        {
+            InitializeAnimation(Position, SequenceTexture, NumberOfFrames, NumberOfRows, NumberOfCols, FramePerSecond, 1, RotationStartRadiant, RotationSpeed, gameState);
+        }
+
+        /// <summary>
+        /// Inizializza una Animation
+        /// </summary>
+        /// <param name="Position">La posizione della texture</param>
+        /// <param name="SequenceTexture">Il nome della texture con la sequenza di frame</param>
+        /// <param name="NumberOfFrames">Il numero totale di frame della sequenza</param>
+        /// <param name="NumberOfRows">Il numero di righe della matrice di frame</param>
+        /// <param name="NumberOfCols">Il numero di colonne della matrice di frame</param>
+        /// <param name="FramePerSecond">Il numero di frame al secondo</param>
+        /// <param name="Cycles">Il numero di volte che viene ripetuta l'animazione</param>
+        /// <param name="RotationStartRadiant">Posizione di partenza della rotazione in radianti</param>
+        /// <param name="RotationSpeed">La velocità di rotazione</param>
+        /// <param name="ScalingPercentage">Percentuale di scaling</param>
+        /// <param name="gameState">Il Game State</param>
+        public Animation(Vector2 Position, string SequenceTexture, int NumberOfFrames, int NumberOfRows, int NumberOfCols, int FramePerSecond, int Cycles, float RotationStartRadiant, float RotationSpeed, GameState gameState)
+        {
+            InitializeAnimation(Position, SequenceTexture, NumberOfFrames, NumberOfRows, NumberOfCols, FramePerSecond, Cycles, RotationStartRadiant, RotationSpeed, gameState);
+        }
+
+        private void InitializeAnimation(Vector2 Position, string SequenceTexture, int NumberOfFrames, int NumberOfRows, int NumberOfCols, int FramePerSecond, int Cycles, float RotationStartRadiant, float RotationSpeed, GameState gameState)
         {
             this.Rows = NumberOfRows;
             this.Length = NumberOfFrames;
@@ -54,6 +81,8 @@ namespace Continuum.Elements
             this.Row = 0;
             this.Col = 0;
             this.StretchRatio = 1;
+            this.Cycles = Cycles;
+            this.cycleCounter = 1;
             InitializeTimeTraveler(Position, FramePerSecond, SequenceTexture, gameState, RotationStartRadiant, RotationSpeed);
             this.SequenceWidth = gs.textures[TextureIndex].Width;
             this.SequenceHeight = gs.textures[TextureIndex].Height;
@@ -69,14 +98,19 @@ namespace Continuum.Elements
         {
             if (gs.levelTime.continuum != 0)
             {
-                Index = (int)Delta;
+                Index = (int)Delta % Length;
                 Row = Index / Cols;
                 Col = Index % Cols;
                 SourceRectangle = new Rectangle(Col * Width, Row * Height, Width, Height);
                 if (Index < 0)
                     lifeState = LifeState.DELETING;
-                if (Index > Length - 1)
-                    lifeState = LifeState.DEAD;
+                if (Delta >= Length * cycleCounter)
+                {
+                    AddElementRecord((Value) => cycleCounter = (int)Value, cycleCounter);
+                    cycleCounter++;
+                    if(cycleCounter > Cycles)
+                        lifeState = LifeState.DEAD;
+                }
             }
             return startPosition;
         }
