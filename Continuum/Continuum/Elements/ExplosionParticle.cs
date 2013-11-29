@@ -59,7 +59,7 @@ namespace Continuum.Elements
         /// <param name="gameState">Il GameState</param>
         public Chip(Vector2 Position, Vector2 Direction, float Speed, float DeltaDuration, int Damage, int Life, string TextureGroupName, GameState gameState)
         {
-            if(Direction == Vector2.Zero)
+            if (Direction == Vector2.Zero)
                 Direction = new Vector2(Utility.NextRandom(0, 2f) - 1f, Utility.NextRandom(0, 2f) - 1f);
             Direction.Normalize();
             this.Direction = Direction;

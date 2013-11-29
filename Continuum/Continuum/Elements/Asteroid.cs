@@ -46,13 +46,13 @@ namespace Continuum.Elements
         /// </summary>
         /// <param name="value">L'entità del danno</param>
         /// <param name="Direction">La direzione da cui arriva la fonte del danno</param>
-        public void Damage(int value)
+        public void Damage(int value, Vector2 direction)
         {
             if (life > 0)
             {
                 AddElementRecord(Value => life = (int)Value, life);
                 life -= value;
-                gs.newAsteroidChip(CurrentPosition);
+                gs.newAsteroidChip(CurrentPosition, direction);
             }
             if (life <= 0)
             {
@@ -75,7 +75,7 @@ namespace Continuum.Elements
 
         public override void HasCollided(int Value,object arg)
         {
-            this.Damage(Value);
+            this.Damage(Value, (Vector2)arg - CurrentPosition);
         }
 
         public override string ToString()

@@ -36,7 +36,7 @@ namespace Continuum.Management
                         {
                             int temp = (int) gs.PlayerLife;
                             gs.PlayerHasCollided(((Asteroid)(gs.collisions.GetElementAt(i))).life, 1, 2);
-                            gs.collisions.GetElementAt(i).HasCollided(temp, null);
+                            gs.collisions.GetElementAt(i).HasCollided(temp, gs.playerPosition);
                         }
                         else if (gs.collisions.GetElementAt(i) is Enemy)                        //collisione tra player e enemy
                         {
@@ -97,18 +97,18 @@ namespace Continuum.Management
                                 if (gs.collisions.GetElementAt(j) is Enemy)                    //collisione tra asteroide e enemy
                                 {
                                     int temp = ((Asteroid)(gs.collisions.GetElementAt(i))).life;
-                                    gs.collisions.GetElementAt(i).HasCollided(((Enemy)(gs.collisions.GetElementAt(j))).life, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((Enemy)(gs.collisions.GetElementAt(j))).life, gs.collisions.GetElementAt(j).CurrentPosition);
                                     gs.collisions.GetElementAt(j).HasCollided(temp, null);
                                 }
                                 else if (gs.collisions.GetElementAt(j) is Bullet)                //collisione tra asteroide e gunbullet
                                 {
-                                    gs.collisions.GetElementAt(i).HasCollided(((Bullet)(gs.collisions.GetElementAt(j))).damage, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((Bullet)(gs.collisions.GetElementAt(j))).damage, gs.collisions.GetElementAt(j).CurrentPosition);
                                     gs.collisions.GetElementAt(j).HasCollided(0, null);
                                 }
                                 else if (gs.collisions.GetElementAt(j) is Chip)     //collisione tra asteroide e explosionParticle
                                 {
                                     gs.collisions.GetElementAt(j).HasCollided(((Asteroid)(gs.collisions.GetElementAt(i))).life, null);
-                                    gs.collisions.GetElementAt(i).HasCollided(((Chip)gs.collisions.GetElementAt(j)).Damage, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((Chip)gs.collisions.GetElementAt(j)).Damage, gs.collisions.GetElementAt(j).CurrentPosition);
                                 }
                             }
                             else if (gs.collisions.GetElementAt(i) is Enemy)                        //controllo di collisioni con enemies
@@ -117,7 +117,7 @@ namespace Continuum.Management
                                 {
                                     int temp = ((Enemy)(gs.collisions.GetElementAt(i))).life;
                                     gs.collisions.GetElementAt(i).HasCollided(((Asteroid)(gs.collisions.GetElementAt(j))).life, null);
-                                    gs.collisions.GetElementAt(j).HasCollided(temp, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(temp, gs.collisions.GetElementAt(j).CurrentPosition);
                                 }
                                 else if (gs.collisions.GetElementAt(j) is Bullet)                //collisione tra enemy e bullet
                                 {
@@ -133,12 +133,25 @@ namespace Continuum.Management
                                     gs.collisions.GetElementAt(i).HasCollided(((Chip)gs.collisions.GetElementAt(j)).Damage, null);
                                 }
                             }
+                            else if (gs.collisions.GetElementAt(i) is Chip)
+                            {
+                                if (gs.collisions.GetElementAt(j) is Asteroid)                      //collisione tra chip e asteroide
+                                {
+                                    gs.collisions.GetElementAt(i).HasCollided(((Asteroid)(gs.collisions.GetElementAt(j))).life, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(((Chip)gs.collisions.GetElementAt(i)).Damage, gs.collisions.GetElementAt(j).CurrentPosition);
+                                }
+                                else if (gs.collisions.GetElementAt(j) is Enemy)                    //collisione tra chip e enemy
+                                {
+                                    gs.collisions.GetElementAt(i).HasCollided(((Enemy)(gs.collisions.GetElementAt(j))).life, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(((Chip)gs.collisions.GetElementAt(i)).Damage, null);
+                                }
+                            }
                             else if (gs.collisions.GetElementAt(i) is Bullet)                    //controllo di collisioni su gunbullets
                             {
                                 if (gs.collisions.GetElementAt(j) is Asteroid)                      //collisione tra bullet e asteroide
                                 {
                                     gs.collisions.GetElementAt(i).HasCollided(0, null);
-                                    gs.collisions.GetElementAt(j).HasCollided(((Bullet)(gs.collisions.GetElementAt(i))).damage, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(((Bullet)(gs.collisions.GetElementAt(i))).damage, gs.collisions.GetElementAt(j).CurrentPosition);
                                 }
                                 else if (gs.collisions.GetElementAt(j) is Enemy)                    //collisione tra gunbullet e enemy
                                 {

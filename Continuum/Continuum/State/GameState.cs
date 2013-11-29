@@ -341,9 +341,9 @@ namespace Continuum.State
         /// Crea un frammento di asteroide
         /// </summary>
         /// <param name="position">la posizione da cui parte il frammento</param>
-        public void newAsteroidChip(Vector2 position)
+        public void newAsteroidChip(Vector2 position, Vector2 direction)
         {
-            explosionParticles.AddLast(new Chip(position, Vector2.Zero, Utility.NextRandom(50f, 200f), 50f, 0, 0, "asteroidChip", this));
+            explosionParticles.AddLast(new Chip(position, direction, 300, 100, 0, 0, "asteroidChip", this));
         }
 
         /// <summary>
@@ -354,7 +354,7 @@ namespace Continuum.State
         {
             for (int i = 0; i < 15; i++)
             {
-                newAsteroidChip(position);
+                explosionParticles.AddLast(new Chip(position, Vector2.Zero, Utility.NextRandom(100, 250), 100, 0, 0, "asteroidChip", this));
             }
         }
 
