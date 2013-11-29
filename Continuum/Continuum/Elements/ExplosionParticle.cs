@@ -77,7 +77,6 @@ namespace Continuum.Elements
         public override Vector2 EvaluatePosition(float Delta)
         {
             if(debugParticle != null && debugParticle.GetHashCode() == this.GetHashCode())
-                System.Diagnostics.Debug.WriteLine("a: " + a + "time: " + delta + " damage:" + Damage);
 
             if (lifeState != LifeState.DEAD)
             {

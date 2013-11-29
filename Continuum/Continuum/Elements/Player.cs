@@ -85,7 +85,7 @@ namespace Continuum.Elements
 
                 //Uno state nuovo ogni 33 millisecondi DELLA TIMEMACHINE
                 if (gs.playerStates.Count == 0 || (gs.playerTime.time * 1000) - (gs.playerStates.First.Value.timeStamp * 1000) >= 33) 
-                    gs.playerStates.AddFirst(new PlayerState(gs.playerPosition.X, gs.playerPosition.Y, gs.PlayerLife, gs.toggleGun, gs.playerTime.time, gs.playerGun.Level, gs.playerRocketLauncher.Level));
+                    gs.playerStates.AddFirst(new PlayerState(gs.playerPosition.X, gs.playerPosition.Y, gs.PlayerLife, gs.toggleGun, gs.playerTime.time, gs.playerGun.Level, gs.playerRocketLauncher.Level, gs.PlayerGranadeCount));
                 
                 //Cancella l'ultimo stato se sono passati più di 4 secondi da quando è stato creato.
                 if (gs.playerTime.time - gs.playerStates.Last.Value.timeStamp > gs.timeTank)
@@ -130,6 +130,7 @@ namespace Continuum.Elements
                             gs.playerGun.Level = gs.playerStates.First.Value.gunLevel;
                             gs.playerRocketLauncher.Level = gs.playerStates.First.Value.rocketLauncherLevel;
                             gs.toggleGun = gs.playerStates.First.Value.toggleGun;
+                            gs.PlayerGranadeCount = gs.playerStates.First.Value.granades;
                             //gs.playerWeapons = gs.playerStates.First.Value.weaponsStack;
 
                             gs.playerStates.RemoveFirst();

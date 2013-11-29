@@ -29,7 +29,6 @@ namespace Continuum.Elements
             if (!(arg is GunBullet))
             {
                 lifeState = LifeState.DEAD;
-                SoundManager.PlaySound("rocket");
             }
         }
     }

@@ -9,8 +9,9 @@
         public float timeStamp;
         public int gunLevel;
         public int rocketLauncherLevel;
+        public int granades;
 
-        public PlayerState(float positionX, float positionY, float life, bool toggleGun, float timeStamp, int gunLevel, int rocketLauncherLevel)
+        public PlayerState(float positionX, float positionY, float life, bool toggleGun, float timeStamp, int gunLevel, int rocketLauncherLevel, int granades)
         {
             this.life = life;
             this.positionX = positionX;
@@ -19,6 +20,7 @@
             this.timeStamp = timeStamp;
             this.gunLevel = gunLevel;
             this.rocketLauncherLevel = rocketLauncherLevel;
+            this.granades = granades;
         }
     }
 }
