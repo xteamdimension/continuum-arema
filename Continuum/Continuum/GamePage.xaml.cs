@@ -130,6 +130,9 @@ namespace Continuum
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
             base.OnBackKeyPress(e);
+
+            granadebutton_initialfade.Pause();
+
             if (gs.playerLifeState == LifeState.DELETING)
             {
                 NavigationService.GoBack();
@@ -145,6 +148,7 @@ namespace Continuum
                 else
                 {
                     e.Cancel = true;
+                    granadebutton_initialfade.Resume();
                     inputManager.RecalibrateAccelerometer();
                 }
                 /*else
@@ -207,6 +211,8 @@ namespace Continuum
 
             //Disable UserIdleDetection
             PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
+
+            granadebutton_initialfade.Begin();
 
             base.OnNavigatedTo(e);
         }
