@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Continuum.Utilities;
 using Continuum.State;
+using Continuum.Management;
 
 namespace Continuum.Elements
 {
@@ -39,7 +40,11 @@ namespace Continuum.Elements
 
         public override void HasCollided(int Value, object arg)
         {
-            this.lifeState = LifeState.DEAD;
+            if (lifeState != LifeState.DEAD)
+            {
+                this.lifeState = LifeState.DEAD;
+                SoundManager.PlaySound("powerUp");
+            }
         }
     }
 }

@@ -124,6 +124,12 @@ namespace Continuum
             player = new Player(gs);
             playerColor = Color.White;
 
+            SoundManager.LoadSound("bulletHit");
+            SoundManager.LoadSound("explosion");
+            SoundManager.LoadSound("powerUp");
+            SoundManager.LoadSound("rewindStart");
+            SoundManager.LoadSound("rocket");
+
             gs.timeTank = 0;
         }
 

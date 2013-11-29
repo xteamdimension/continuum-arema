@@ -25,6 +25,11 @@ namespace Continuum.Management
         private static ContentManager content;
 
         /// <summary>
+        /// Il percorso alla cartella dei suoni
+        /// </summary>
+        private static string path;
+
+        /// <summary>
         /// Il settaggio del gioco
         /// </summary>
         //private static GameSetting setting;
@@ -32,12 +37,14 @@ namespace Continuum.Management
         /// <summary>
         /// Inizializza il SoundManager
         /// </summary>
+        /// <param name="soundFolderPath">Il percorso della cartella che contiene i suoni</param>
         /// <param name="contentManager">Il content manager che serve per caricare i suoni</param>
-        public static void Initialize(ContentManager contentManager/*, GameSetting gameSetting */)
+        public static void Initialize(ContentManager contentManager, string soundFolderPath/*, GameSetting gameSetting */)
         {
             soundInstances = new Dictionary<string, List<SoundEffectInstance>>();
             soundEffects = new Dictionary<string, SoundEffect>();
             content = contentManager;
+            path = soundFolderPath;
             //setting = gameSetting;
         }
 
@@ -49,7 +56,7 @@ namespace Continuum.Management
         {
             if (!soundEffects.ContainsKey(soundName))
             {
-                soundEffects.Add(soundName, content.Load<SoundEffect>(soundName));
+                soundEffects.Add(soundName, content.Load<SoundEffect>(path + soundName));
                 soundInstances.Add(soundName, new List<SoundEffectInstance>());
             }
         }

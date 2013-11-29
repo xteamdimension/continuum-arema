@@ -3,6 +3,7 @@ using Continuum.Weapons;
 using Continuum.State;
 using Continuum.Utilities;
 using System;
+using Continuum.Management;
 
 namespace Continuum.Elements
 {
@@ -28,6 +29,7 @@ namespace Continuum.Elements
             if (!(arg is GunBullet))
             {
                 lifeState = LifeState.DEAD;
+                SoundManager.PlaySound("rocket");
             }
         }
     }

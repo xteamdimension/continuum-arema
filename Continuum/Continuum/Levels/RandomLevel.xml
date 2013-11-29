@@ -45,10 +45,10 @@
     <backgroundTexture timestamp="0" texture="stars" level="1" speed="221"/>
     <asteroidRandomizer timestamp="5" texture="asteroid" launchProbabilityPerSecond="0.08" probabilityIncrementPerMinute="0.05" 
                         pobabilityMax="0.2" lifeRandomVariable="asteroidLife" speedRandomVariable="asteroidSpeed" />
-    <enemyRandomizer timestamp="10" texture="enemyeasy" launchProbabilityPerSecond="0.1" probabilityIncrementPerMinute="0.1"
+    <enemyRandomizer timestamp="5" texture="enemyeasy" launchProbabilityPerSecond="0.1" probabilityIncrementPerMinute="0.1"
                      powerUpProbabilityPerLaunch="0.25" granadePowerUpProbability="0.2" rocketPowerUpProbability="0.3" weapon="Gun"
                      lifeRandomVariable="enemyEasyLife" speedRandomVariable="enemyEasySpeed" />
-    <enemyRandomizer timestamp="20" texture="enemynormal" launchProbabilityPerSecond="0.06" probabilityIncrementPerMinute="0.1"
+    <enemyRandomizer timestamp="5" texture="enemynormal" launchProbabilityPerSecond="0.06" probabilityIncrementPerMinute="0.1"
                      powerUpProbabilityPerLaunch="0.35" granadePowerUpProbability="0.3" rocketPowerUpProbability="0.4" weapon="RocketLauncher"
                      lifeRandomVariable="enemyNormalLife" speedRandomVariable="enemyNormalSpeed" pobabilityMax="0.8"/>
     <tachyonStreamRandomizer timestamp="20" texture="tachyonstream" launchProbabilityPerSecond="0.1" durationRandomVariable="tachyonStreamDuration"/>

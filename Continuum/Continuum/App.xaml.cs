@@ -95,9 +95,9 @@ namespace Continuum
                 Song music = Content.Load<Song>("Sounds/continuum");
                 FrameworkDispatcher.Update();
                 MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(music);
+                //MediaPlayer.Play(music);
             }
-            SoundManager.Initialize(Content);
+            SoundManager.Initialize(Content, "Sounds/");
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using Continuum.Weapons;
 using Continuum.State;
 using Continuum.Utilities;
+using Continuum.Management;
 namespace Continuum.Elements
 {
     public abstract class Bullet : TimeTraveler
@@ -34,7 +35,11 @@ namespace Continuum.Elements
 
         public override void HasCollided(int Value,object arg)
         {
-            lifeState = LifeState.DEAD;
+            if (lifeState != LifeState.DEAD)
+            {
+                lifeState = LifeState.DEAD;
+                SoundManager.PlaySound("bulletHit");
+            }
         }
 
         public bool isPlayerBullet { get; set; }
