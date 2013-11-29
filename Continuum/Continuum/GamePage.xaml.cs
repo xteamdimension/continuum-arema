@@ -375,7 +375,7 @@ namespace Continuum
                     spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, enemyColor, x.Rotation, x.Origin, SpriteEffects.None, 0);
                 }
 
-            foreach (ExplosionParticle x in gs.explosionParticles)
+            foreach (Chip x in gs.explosionParticles)
                 if (x.lifeState != LifeState.DEAD)
                 {
                     spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, timeColor * x.Alpha, x.Rotation, x.Origin, SpriteEffects.None, 0);

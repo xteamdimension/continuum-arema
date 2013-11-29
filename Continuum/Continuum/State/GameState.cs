@@ -27,7 +27,7 @@ namespace Continuum.State
         public LinkedList<PlayerState> playerStates;
         public LinkedList<PowerUp> powerUps;
         public LinkedList<Randomizer> randomizers;
-        public LinkedList<ExplosionParticle> explosionParticles;
+        public LinkedList<Chip> explosionParticles;
         public TachyonStream tachyonStream;
         public Gun playerGun;
         public RocketLauncher playerRocketLauncher;
@@ -154,7 +154,7 @@ namespace Continuum.State
             animations = new LinkedList<Animation>();
             powerUps = new LinkedList<PowerUp>();
             randomizers = new LinkedList<Randomizer>();
-            explosionParticles = new LinkedList<ExplosionParticle>();
+            explosionParticles = new LinkedList<Chip>();
             playerPosition = new Vector2(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
             levelPosition = 0;
             levelFramesWaited = 0;
@@ -319,7 +319,42 @@ namespace Continuum.State
             SoundManager.PlaySound("explosion");
             for (int i = 0; i < 15; i++)
             {
-                explosionParticles.AddLast(new ExplosionParticle(position, this, false));
+                explosionParticles.AddLast(new Chip(position, Vector2.Zero, Utility.NextRandom(50f,200f), 100, 0, 0, "explosionChip", this));
+            }
+        }
+
+        /// <summary>
+        /// Crea un'esplosione della granata (che fa danno)
+        /// </summary>
+        /// <param name="position">La posizione dell'esplosione</param>
+        public void newGranadeExplosion(Vector2 position)
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                Chip ep = new Chip(position, Vector2.Zero, Utility.NextRandom(150f, 300f), 200, Constants.GRANADE_DAMAGE, Constants.GRANADE_DAMAGE, "granadeChip", this);
+                explosionParticles.AddLast(ep);
+                collisions.Insert(ep);
+            }
+        }
+
+        /// <summary>
+        /// Crea un frammento di asteroide
+        /// </summary>
+        /// <param name="position">la posizione da cui parte il frammento</param>
+        public void newAsteroidChip(Vector2 position)
+        {
+            explosionParticles.AddLast(new Chip(position, Vector2.Zero, Utility.NextRandom(50f, 200f), 50f, 0, 0, "asteroidChip", this));
+        }
+
+        /// <summary>
+        /// Crea un'esplosione causata dalla distruzione di un asteroide (che non fa danno)
+        /// </summary>
+        /// <param name="position">La posizione dell'asteroide</param>
+        public void newAsteroidExplosion(Vector2 position)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                newAsteroidChip(position);
             }
         }
 

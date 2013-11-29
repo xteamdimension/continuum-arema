@@ -27,11 +27,11 @@ namespace Continuum.Management
         {
             if (!gs.pause)
             {
-                ExplosionParticle[] temp = new ExplosionParticle[gs.explosionParticles.Count];
+                Chip[] temp = new Chip[gs.explosionParticles.Count];
                 int i = 0;
 
                 //Aggiorna tutte le istanze della classe Tachyon presenti nella lista
-                foreach (ExplosionParticle x in gs.explosionParticles)
+                foreach (Chip x in gs.explosionParticles)
                 {
                     x.Update();
                     if (!Utility.IsInScreenSpace(Utility.newRectangleFromCenterPosition(x.CurrentPosition, 30, 30)))

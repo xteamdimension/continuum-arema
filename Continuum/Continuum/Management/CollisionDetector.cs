@@ -105,10 +105,10 @@ namespace Continuum.Management
                                     gs.collisions.GetElementAt(i).HasCollided(((Bullet)(gs.collisions.GetElementAt(j))).damage, null);
                                     gs.collisions.GetElementAt(j).HasCollided(0, null);
                                 }
-                                else if (gs.collisions.GetElementAt(j) is ExplosionParticle)     //collisione tra asteroide e explosionParticle
+                                else if (gs.collisions.GetElementAt(j) is Chip)     //collisione tra asteroide e explosionParticle
                                 {
                                     gs.collisions.GetElementAt(j).HasCollided(((Asteroid)(gs.collisions.GetElementAt(i))).life, null);
-                                    gs.collisions.GetElementAt(i).HasCollided(((ExplosionParticle)gs.collisions.GetElementAt(j)).Damage, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((Chip)gs.collisions.GetElementAt(j)).Damage, null);
                                 }
                             }
                             else if (gs.collisions.GetElementAt(i) is Enemy)                        //controllo di collisioni con enemies
@@ -127,10 +127,10 @@ namespace Continuum.Management
                                         gs.collisions.GetElementAt(j).HasCollided(0, null);
                                     }
                                 }
-                                else if (gs.collisions.GetElementAt(j) is ExplosionParticle)                //collisione tra enemy e explosionParticle
+                                else if (gs.collisions.GetElementAt(j) is Chip)                //collisione tra enemy e explosionParticle
                                 {
                                     gs.collisions.GetElementAt(j).HasCollided(((Enemy)(gs.collisions.GetElementAt(i))).life, null);
-                                    gs.collisions.GetElementAt(i).HasCollided(((ExplosionParticle)gs.collisions.GetElementAt(j)).Damage, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((Chip)gs.collisions.GetElementAt(j)).Damage, null);
                                 }
                             }
                             else if (gs.collisions.GetElementAt(i) is Bullet)                    //controllo di collisioni su gunbullets

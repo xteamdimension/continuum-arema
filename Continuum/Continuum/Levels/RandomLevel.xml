@@ -9,12 +9,15 @@
     <texture id="enemybullet" path="Weapons/enemyBullet"/>
     <texture id="shadow" path="Effects/shadowcorner"/>
     <texture id="asteroid" path="Asteroids/asteroid"/>
-    <texture id="explosionParticle1" path="Effects/explosionParticle1"/>
-    <texture id="explosionParticle2" path="Effects/explosionParticle2"/>
-    <texture id="explosionParticle3" path="Effects/explosionParticle3"/>
-    <texture id="granadeExplosionParticle1" path="Effects/granadeExplosionParticle1"/>
-    <texture id="granadeExplosionParticle2" path="Effects/granadeExplosionParticle2"/>
-    <texture id="granadeExplosionParticle3" path="Effects/granadeExplosionParticle3"/>
+    <texture id="explosionChip1" path="Effects/explosionChip1"/>
+    <texture id="explosionChip2" path="Effects/explosionChip2"/>
+    <texture id="explosionChip3" path="Effects/explosionChip3"/>
+    <texture id="granadeChip1" path="Effects/granadeChip1"/>
+    <texture id="granadeChip2" path="Effects/granadeChip2"/>
+    <texture id="granadeChip3" path="Effects/granadeChip3"/>
+    <texture id="asteroidChip1" path="Effects/asteroidChip1"/>
+    <texture id="asteroidChip2" path="Effects/asteroidChip2"/>
+    <texture id="asteroidChip3" path="Effects/asteroidChip3"/>
     <texture id="enemyeasy" path="Enemies/easy" />
     <texture id="enemynormal" path="Enemies/normal"/>
     <texture id="tachyonstream" path="Animations/TachyonStream"/>

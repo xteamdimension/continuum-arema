@@ -190,35 +190,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Effects\explosionParticle1.png">
-      <Name>explosionParticle1</Name>
+    <Compile Include="Effects\explosionChip1.png">
+      <Name>explosionChip1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Effects\explosionParticle2.png">
-      <Name>explosionParticle2</Name>
+    <Compile Include="Effects\explosionChip2.png">
+      <Name>explosionChip2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Effects\explosionParticle3.png">
-      <Name>explosionParticle3</Name>
+    <Compile Include="Effects\explosionChip3.png">
+      <Name>explosionChip3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Effects\granadeExplosionParticle1.png">
-      <Name>granadeExplosionParticle1</Name>
+    <Compile Include="Effects\granadeChip1.png">
+      <Name>granadeChip1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Effects\granadeExplosionParticle2.png">
-      <Name>granadeExplosionParticle2</Name>
+    <Compile Include="Effects\granadeChip2.png">
+      <Name>granadeChip2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Effects\granadeExplosionParticle3.png">
-      <Name>granadeExplosionParticle3</Name>
+    <Compile Include="Effects\granadeChip3.png">
+      <Name>granadeChip3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -267,6 +267,23 @@
       <Name>gridStart</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Effects\asteroidChip1.png">
+      <Name>asteroidChip1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Effects\asteroidChip2.png">
+      <Name>asteroidChip2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Effects\asteroidChip3.png">
+      <Name>asteroidChip3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

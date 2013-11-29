@@ -20,7 +20,7 @@ namespace Continuum.Utilities
         /// Il danno recato da una singola particella dell'esplosione di una granata
         /// Questo è un danno iniziale, perchè poi diminuisce con il quadrato della distanza da dove è stato lanciato
         /// </summary>
-        public const int EXPLOSION_PARTICLE_DAMAGE = 10;
+        public const int GRANADE_DAMAGE = 10;
 
         /// <summary>
         /// Indica il numero massimo di punteggi da salvare nell'Isolated Storage.

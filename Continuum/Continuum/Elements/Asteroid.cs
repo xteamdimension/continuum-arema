@@ -52,10 +52,12 @@ namespace Continuum.Elements
             {
                 AddElementRecord(Value => life = (int)Value, life);
                 life -= value;
+                gs.newAsteroidChip(CurrentPosition);
             }
             if (life <= 0)
             {
                 lifeState = LifeState.DEAD;
+                gs.newAsteroidExplosion(CurrentPosition);
             }
         }
 

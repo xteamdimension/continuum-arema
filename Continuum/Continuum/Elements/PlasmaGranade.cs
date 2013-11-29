@@ -45,13 +45,7 @@ namespace Continuum.Elements
         {
             if (lifeState != LifeState.DEAD)
             {
-                // gs.newAreaDamage(CurrentPosition, TextureConstant.ANIMATION_EXPLOSION, 100, 10, 10, 2, 128, 1);
-                for (int i = 0; i < 30; i++)
-                {
-                    ExplosionParticle ep = new ExplosionParticle(CurrentPosition, gs, true);
-                    gs.explosionParticles.AddLast(ep);
-                    gs.collisions.Insert(ep);
-                }
+                gs.newGranadeExplosion(CurrentPosition);
             }
             lifeState = LifeState.DEAD;
         }
