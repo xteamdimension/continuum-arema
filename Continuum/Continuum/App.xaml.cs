@@ -98,8 +98,6 @@ namespace Continuum
                 MediaPlayer.Play(music);
             }
             SoundManager.Initialize(Content);
-            SoundManager.LoadSound("");
-            SoundManager.LoadSound("");
         }
 
         /// <summary>

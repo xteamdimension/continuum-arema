@@ -47,8 +47,11 @@ namespace Continuum.Management
         /// <param name="soundName">Il nome dell'asset</param>
         public static void LoadSound(string soundName)
         {
-            soundEffects.Add(soundName, content.Load<SoundEffect>(soundName));
-            soundInstances.Add(soundName, new List<SoundEffectInstance>());
+            if (!soundEffects.ContainsKey(soundName))
+            {
+                soundEffects.Add(soundName, content.Load<SoundEffect>(soundName));
+                soundInstances.Add(soundName, new List<SoundEffectInstance>());
+            }
         }
 
         /// <summary>
