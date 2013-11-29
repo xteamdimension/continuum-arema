@@ -318,7 +318,7 @@ namespace Continuum.State
         {
             for (int i = 0; i < 15; i++)
             {
-                explosionParticles.AddLast(new ExplosionParticle(position, this));
+                explosionParticles.AddLast(new ExplosionParticle(position, this, false));
             }
         }
 

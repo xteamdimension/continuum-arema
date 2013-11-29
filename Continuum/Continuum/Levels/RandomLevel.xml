@@ -12,6 +12,9 @@
     <texture id="explosionParticle1" path="Effects/explosionParticle1"/>
     <texture id="explosionParticle2" path="Effects/explosionParticle2"/>
     <texture id="explosionParticle3" path="Effects/explosionParticle3"/>
+    <texture id="granadeExplosionParticle1" path="Effects/granadeExplosionParticle1"/>
+    <texture id="granadeExplosionParticle2" path="Effects/granadeExplosionParticle2"/>
+    <texture id="granadeExplosionParticle3" path="Effects/granadeExplosionParticle3"/>
     <texture id="enemyeasy" path="Enemies/easy" />
     <texture id="enemynormal" path="Enemies/normal"/>
     <texture id="tachyonstream" path="Animations/TachyonStream"/>

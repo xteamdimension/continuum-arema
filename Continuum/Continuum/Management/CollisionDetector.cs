@@ -107,8 +107,8 @@ namespace Continuum.Management
                                 }
                                 else if (gs.collisions.GetElementAt(j) is ExplosionParticle)     //collisione tra asteroide e explosionParticle
                                 {
-                                    gs.collisions.GetElementAt(i).HasCollided(Constants.EXPLOSION_PARTICLE_DAMAGE, null);
-                                    gs.collisions.GetElementAt(j).HasCollided(0, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(((Asteroid)(gs.collisions.GetElementAt(i))).life, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((ExplosionParticle)gs.collisions.GetElementAt(j)).Damage, null);
                                 }
                             }
                             else if (gs.collisions.GetElementAt(i) is Enemy)                        //controllo di collisioni con enemies
@@ -127,10 +127,10 @@ namespace Continuum.Management
                                         gs.collisions.GetElementAt(j).HasCollided(0, null);
                                     }
                                 }
-                                else if (gs.collisions.GetElementAt(j) is ExplosionParticle)                //collisione tra enemy e bullet
+                                else if (gs.collisions.GetElementAt(j) is ExplosionParticle)                //collisione tra enemy e explosionParticle
                                 {
-                                    gs.collisions.GetElementAt(i).HasCollided(Constants.EXPLOSION_PARTICLE_DAMAGE, null);
-                                    gs.collisions.GetElementAt(j).HasCollided(0, null);
+                                    gs.collisions.GetElementAt(j).HasCollided(((Enemy)(gs.collisions.GetElementAt(i))).life, null);
+                                    gs.collisions.GetElementAt(i).HasCollided(((ExplosionParticle)gs.collisions.GetElementAt(j)).Damage, null);
                                 }
                             }
                             else if (gs.collisions.GetElementAt(i) is Bullet)                    //controllo di collisioni su gunbullets
@@ -166,6 +166,8 @@ namespace Continuum.Management
 
         public bool TryCollision(TimeTraveler a, TimeTraveler b)
         {
+            if (a.lifeState == LifeState.DEAD || b.lifeState == LifeState.DEAD || a.lifeState == LifeState.DELETING || b.lifeState == LifeState.DELETING)
+                return false;
             Rectangle A = Utility.newRectangleFromCenterPosition(a.CurrentPosition, a.Width, a.Height);
             Rectangle B = Utility.newRectangleFromCenterPosition(b.CurrentPosition, b.Width, b.Height);
             return A.Intersects(B);
@@ -173,6 +175,8 @@ namespace Continuum.Management
 
         public bool TryPlayerCollision(TimeTraveler b)
         {
+            if (b.lifeState == LifeState.DEAD || b.lifeState == LifeState.DELETING)
+                return false;
             Rectangle A = Utility.newRectangleFromCenterPosition(gs.playerPosition, gs.PlayerWidth, gs.PlayerHeight);
             Rectangle B = Utility.newRectangleFromCenterPosition(b.CurrentPosition,b.Width ,b.Height);
             if (A.Intersects(B))

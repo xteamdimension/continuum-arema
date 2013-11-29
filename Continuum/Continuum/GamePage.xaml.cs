@@ -46,7 +46,9 @@ namespace Continuum
         public Rectangle shadowSource;
         public Rectangle bloodSource;
         public Color timeColor;
+        public Color bloodColor;
         public Color gridColor;
+        public Color playerColor;
 
         //Managers
         public TimeManager timeManager;
@@ -120,6 +122,7 @@ namespace Continuum
             explosionParticleManager = new ExplosionParticleManager(gs);
 
             player = new Player(gs);
+            playerColor = Color.White;
 
             gs.timeTank = 0;
         }
@@ -226,6 +229,7 @@ namespace Continuum
         private void OnUpdate(object sender, GameTimerEventArgs e)
         {
             TimeTankBar.Value = 100.0f * gs.timeTank / Constants.MAX_TIME_TANK_VALUE;
+            playerColor = Color.White;
             if (gs.levelTime.time <= Constants.INITIAL_BLACK_DURATION + Constants.INITIAL_FADE_DURATION)
                 if (gs.levelTime.time <= Constants.INITIAL_BLACK_DURATION)
                     timeColor = Color.Black;
@@ -243,6 +247,8 @@ namespace Continuum
             if (gs.PlayerLife <= Utilities.Constants.PLAYER_LIFE_CRITICAL_VALUE)
             {
                 bloodSource = new Rectangle(0,0,240,400);
+                float intensity = (float)gs.PlayerLife / Utilities.Constants.PLAYER_LIFE_CRITICAL_VALUE;
+                playerColor = new Color(new Vector3(1f, intensity, intensity));
             }
 
             if (gs.playerLifeState != LifeState.DELETING)
@@ -320,8 +326,8 @@ namespace Continuum
                     spriteBatch.Draw(gs.textures[x.TextureIndex], x.DestinationRectangle, x.SourceRectangle, timeColor, x.Rotation, x.Origin, SpriteEffects.None, 0);
                 }
 
-            if(gs.playerLifeState != LifeState.DEAD)
-                spriteBatch.Draw(gs.textures[player.TextureIndex], new Vector2(gs.playerPosition.X - gs.textures[0].Width / 2, gs.playerPosition.Y - gs.textures[0].Height / 2), timeColor);
+            if(gs.playerLifeState != LifeState.DEAD && gs.playerLifeState != LifeState.DELETING)
+                spriteBatch.Draw(gs.textures[player.TextureIndex], new Vector2(gs.playerPosition.X - gs.textures[0].Width / 2, gs.playerPosition.Y - gs.textures[0].Height / 2), new Color(timeColor.ToVector3() * playerColor.ToVector3()));
 
             foreach (PowerUp x in gs.powerUps)
                 if (x.lifeState != LifeState.DEAD)

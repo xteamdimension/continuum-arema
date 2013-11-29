@@ -108,8 +108,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PowerUps\rocketPowerUp.png">
-      <Name>rocketPowerUp</Name>
+    <Compile Include="PowerUps\granadePowerUp.png">
+      <Name>granadePowerUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -169,8 +169,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PowerUps\granadePowerUp.png">
-      <Name>granadePowerUp</Name>
+    <Compile Include="PowerUps\rocketPowerUp.png">
+      <Name>rocketPowerUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -202,6 +202,23 @@
     </Compile>
     <Compile Include="Effects\explosionParticle3.png">
       <Name>explosionParticle3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Effects\granadeExplosionParticle1.png">
+      <Name>granadeExplosionParticle1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Effects\granadeExplosionParticle2.png">
+      <Name>granadeExplosionParticle2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Effects\granadeExplosionParticle3.png">
+      <Name>granadeExplosionParticle3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

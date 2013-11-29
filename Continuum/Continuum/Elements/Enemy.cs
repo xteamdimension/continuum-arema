@@ -47,7 +47,7 @@ namespace Continuum.Elements
         {
             AddElementRecord(Value => life = (int)Value, life);
             life -= amount;
-            if (life <= 0)
+            if (life <= 0 && lifeState != LifeState.DEAD)
             {
                 lifeState = LifeState.DEAD;
                 gs.newExplosion(CurrentPosition);

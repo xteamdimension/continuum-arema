@@ -38,7 +38,7 @@ namespace Continuum.Elements
 
                 if (gs.playerLifeState == LifeState.DEAD)
                 {
-                    if (deathTime > Constants.MAX_TIME_TANK_VALUE)
+                    if (deathTime > gs.timeTank)
                         gs.playerLifeState = LifeState.DELETING;    //INDICA CHE IL PLAYER È MORTO DA TROPPO TEMPO E IL GIOCO DEVE FINIRE
                     else
                     {
