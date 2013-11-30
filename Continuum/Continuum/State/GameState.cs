@@ -352,9 +352,9 @@ namespace Continuum.State
         /// <param name="position">La posizione dell'asteroide</param>
         public void newAsteroidExplosion(Vector2 position)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 7; i++)
             {
-                explosionParticles.AddLast(new Chip(position, Vector2.Zero, Utility.NextRandom(100, 250), 100, 0, 0, "asteroidChip", this));
+                explosionParticles.AddLast(new Chip(position, Vector2.Zero, Utility.NextRandom(50, 250), 100, 0, 0, "asteroidChip", this));
             }
         }
 

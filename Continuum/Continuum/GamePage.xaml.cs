@@ -437,7 +437,7 @@ namespace Continuum
             }
 
             spriteBatch.Draw(UIrenderer.Texture, SilverlightRectangle, SilverlightRectangle, Color.White);
-            spriteBatch.DrawString(debugFont, debugText + debugText2, new Vector2(0, 0), Color.White);
+            //spriteBatch.DrawString(debugFont, debugText + debugText2, new Vector2(0, 0), Color.White);
 
             //Fade iniziale del livello
             if (gs.levelTime.time < Constants.INITIAL_BLACK_DURATION + Constants.INITIAL_FADE_DURATION)
