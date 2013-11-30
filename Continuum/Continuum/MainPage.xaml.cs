@@ -21,6 +21,7 @@ namespace Continuum
         public MainPage()
         {
             InitializeComponent();
+            ((Storyboard)Resources["Apertura"]).Begin();
         }
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
