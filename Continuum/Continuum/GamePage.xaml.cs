@@ -131,6 +131,8 @@ namespace Continuum
             SoundManager.LoadSound("rocket");
             SoundManager.LoadSound("gridStart");
             SoundManager.LoadSound("gridEnd");
+            SoundManager.LoadSound("rewindEnd");
+            SoundManager.LoadSound("rewindStart");
 
             gs.timeTank = 0;
         }

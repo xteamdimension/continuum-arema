@@ -279,6 +279,7 @@ namespace Continuum.Management
         private void StartForwardInit()
         {
             ResetTimer();
+            SoundManager.PlaySound("rewindEnd");
         }
 
         private void BeginForwardInit()
@@ -309,6 +310,7 @@ namespace Continuum.Management
             beginRewindContinuumLevel = gs.levelTime.continuum;
             continuumLeanLevel = (gs.levelTime.continuum / Constants.CONTINUUM_MAX) * Constants.CONTINUUM_LEAN;
             continuumMinLevel = (gs.levelTime.continuum / Constants.CONTINUUM_MAX) * Constants.CONTINUUM_MIN;
+            SoundManager.PlaySound("rewindStart");
         }
 
         public void Update(GameTimerEventArgs e)
