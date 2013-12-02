@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontFamily="Squared Display"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -16,57 +16,57 @@
 		<Storyboard x:Name="Apertura">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0.005"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button1">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button3">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line1">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line3">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button2">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button4">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line2">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button3">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="line3">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button4">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image">
 				<EasingDoubleKeyFrame KeyTime="0" Value="145"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="145"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="145"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
 	</phone:PhoneApplicationPage.Resources>
@@ -79,15 +79,15 @@
         	</Image.RenderTransform>
         </Image>
         <StackPanel Name="stack" HorizontalAlignment="Stretch" Margin="0,0" VerticalAlignment="Bottom">
-            <Button x:Name="button" Content="Start" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#FF7CC6FF" BorderBrush="{x:Null}" Click="gamePage_Click" />
+            <Button x:Name="button" Content="Start" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#FF7CC6FF" BorderBrush="{x:Null}" Click="gamePage_Click" FontFamily="/Continuum;component/Fonts/Fonts.zip#Squared Display" FontSize="40" BorderThickness="0" Padding="10,10,10,2" />
             <Line x:Name="line" X1="0" X2="480" Y1="0" Y2="0" Stroke="#FF202F3C" StrokeThickness="5" />
-            <Button x:Name="button1" Content="Instructions" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#FF63BBFF" BorderBrush="{x:Null}" Click="tutorial_Click" />
+            <Button x:Name="button1" Content="Instructions" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#FF63BBFF" BorderBrush="{x:Null}" Click="tutorial_Click" FontFamily="/Continuum;component/Fonts/Fonts.zip#Squared Display" FontSize="40" BorderThickness="0" Padding="10,10,10,2" />
             <Line x:Name="line1" X1="0" X2="480" Y1="0" Y2="0" Stroke="#FF202F3C" StrokeThickness="5" />
-            <Button x:Name="button2" Content="Scores" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#41acfe" BorderBrush="{x:Null}" Click="scores_Click" />
+            <Button x:Name="button2" Content="Scores" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#41acfe" BorderBrush="{x:Null}" Click="scores_Click" FontFamily="/Continuum;component/Fonts/Fonts.zip#Squared Display" FontSize="40" BorderThickness="0" Padding="10,10,10,2" />
             <Line x:Name="line2" X1="0" X2="480" Y1="0" Y2="0" Stroke="#FF202F3C" StrokeThickness="5" />
-            <Button x:Name="button3" Content="Credits" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#189BFF" BorderBrush="{x:Null}" Click="credits_Click" />
+            <Button x:Name="button3" Content="Credits" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#189BFF" BorderBrush="{x:Null}" Click="credits_Click" FontFamily="/Continuum;component/Fonts/Fonts.zip#Squared Display" FontSize="40" BorderThickness="0" Padding="10,10,10,2" />
             <Line x:Name="line3" X1="0" X2="480" Y1="0" Y2="0" Stroke="#FF202F3C" StrokeThickness="5" />
-            <Button x:Name="button4" Content="Other Games" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#0090FF" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" >
+            <Button x:Name="button4" Content="Other Games" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="#0090FF" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" FontFamily="/Continuum;component/Fonts/Fonts.zip#Squared Display" FontSize="40" BorderThickness="0" Padding="10,10,10,2" >
             	<Button.RenderTransform>
             		<CompositeTransform/>
             	</Button.RenderTransform>
