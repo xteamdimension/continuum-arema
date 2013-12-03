@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1" ?>
 <level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LevelSchema.xsd" 
-       title="CONTINUUM" subtitle="finira prima o poi..." duration="0" numlevels="2">
+       title="CONTINUUM" subtitle="finira prima o poi..." duration="0" numlevels="3">
 
   <texturesDeclaration>
     <texture id="playership" path="Ships/ship" />
-    <texture id="stars" path="Backgrounds/stars"/>
+    <texture id="stars0" path="Backgrounds/bgr0_0"/>
+    <texture id="stars1" path="Backgrounds/bgr0_1"/>
+    <texture id="stars2" path="Backgrounds/bgr0_2"/>
     <texture id="gunbullet" path="Weapons/gunBullet"/>
     <texture id="enemybullet" path="Weapons/enemyBullet"/>
     <texture id="shadow" path="Effects/shadowcorner"/>
@@ -12,9 +14,9 @@
     <texture id="explosionChip1" path="Effects/explosionChip1"/>
     <texture id="explosionChip2" path="Effects/explosionChip2"/>
     <texture id="explosionChip3" path="Effects/explosionChip3"/>
-    <texture id="granadeChip1" path="Effects/granadeChip1"/>
-    <texture id="granadeChip2" path="Effects/granadeChip2"/>
-    <texture id="granadeChip3" path="Effects/granadeChip3"/>
+    <texture id="granadeChip1" path="Effects/grenadeChip1"/>
+    <texture id="granadeChip2" path="Effects/grenadeChip2"/>
+    <texture id="granadeChip3" path="Effects/grenadeChip3"/>
     <texture id="asteroidChip1" path="Effects/asteroidChip1"/>
     <texture id="asteroidChip2" path="Effects/asteroidChip2"/>
     <texture id="asteroidChip3" path="Effects/asteroidChip3"/>
@@ -26,7 +28,7 @@
     <texture id="followingrocket" path="Weapons/rocketfollower"/>
     <texture id="gunpowerup" path="PowerUps/gunPowerUp"/>
     <texture id="rocketpowerup" path="PowerUps/rocketPowerUp"/>
-    <texture id="granadepowerup" path="PowerUps/granadePowerUp"/>
+    <texture id="granadepowerup" path="PowerUps/grenadePowerUp"/>
     <texture id="void" path="Effects/void" />
     <texture id="plasmagranade" path="Weapons/plasmagranade"/>
     <texture id="scope" path="Weapons/scope"/>
@@ -44,8 +46,9 @@
   </randomVariablesDeclaration>
 
   <startlevel>
-    <backgroundTexture timestamp="0" texture="stars" level="0" speed="200"/>
-    <backgroundTexture timestamp="0" texture="stars" level="1" speed="221"/>
+    <backgroundTexture timestamp="0" texture="stars1" level="0" speed="200"/>
+    <backgroundTexture timestamp="0" texture="stars1" level="1" speed="280"/>
+    <backgroundTexture timestamp="0" texture="stars2" level="2" speed="400"/>
     <asteroidRandomizer timestamp="5" texture="asteroid" launchProbabilityPerSecond="0.08" probabilityIncrementPerMinute="0.05" 
                         pobabilityMax="0.2" lifeRandomVariable="asteroidLife" speedRandomVariable="asteroidSpeed" />
     <enemyRandomizer timestamp="5" texture="enemyeasy" launchProbabilityPerSecond="0.1" probabilityIncrementPerMinute="0.1"

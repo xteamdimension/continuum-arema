@@ -108,13 +108,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PowerUps\granadePowerUp.png">
-      <Name>granadePowerUp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Enemies\easy.png">
       <Name>easy</Name>
       <Importer>TextureImporter</Importer>
@@ -183,13 +176,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backgrounds\stars.png">
-      <Name>stars</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Effects\explosionChip1.png">
       <Name>explosionChip1</Name>
       <Importer>TextureImporter</Importer>
@@ -202,23 +188,6 @@
     </Compile>
     <Compile Include="Effects\explosionChip3.png">
       <Name>explosionChip3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Effects\granadeChip1.png">
-      <Name>granadeChip1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Effects\granadeChip2.png">
-      <Name>granadeChip2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Effects\granadeChip3.png">
-      <Name>granadeChip3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -291,6 +260,47 @@
       <Name>rewindEnd</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backgrounds\bgr0_2.png">
+      <Name>bgr0_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Backgrounds\bgr0_1.png">
+      <Name>bgr0_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Backgrounds\bgr0_0.png">
+      <Name>bgr0_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Effects\grenadeChip1.png">
+      <Name>grenadeChip1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Effects\grenadeChip2.png">
+      <Name>grenadeChip2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Effects\grenadeChip3.png">
+      <Name>grenadeChip3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PowerUps\grenadePowerUp.png">
+      <Name>grenadePowerUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

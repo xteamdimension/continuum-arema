@@ -309,7 +309,7 @@ namespace Continuum
         /// </summary>
         private void OnDraw(object sender, GameTimerEventArgs e)
         {
-            SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
+            SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.Black);
             UIrenderer.Render();
             spriteBatch.Begin();
 

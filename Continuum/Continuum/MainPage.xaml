@@ -83,6 +83,11 @@
 				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
 			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetX)" Storyboard.TargetName="SplashScreen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="480"/>
+			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
 	</phone:PhoneApplicationPage.Resources>
 
@@ -109,6 +114,9 @@
             </Button>
         </StackPanel>
         <Image x:Name="SplashScreen" Source="/SplashScreenImage.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        	<Image.Projection>
+        		<PlaneProjection/>
+        	</Image.Projection>
         	<Image.RenderTransform>
         		<CompositeTransform/>
         	</Image.RenderTransform>
