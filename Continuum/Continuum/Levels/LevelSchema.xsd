@@ -78,6 +78,18 @@
                 </xs:complexType>
               </xs:element>
               
+              <!-- timeDependentVar -->
+              <xs:element name="timeDependentVar" minOccurs="0" maxOccurs="unbounded" >
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="initialValue" type="xs:float" use="required" />
+                  <xs:attribute name="valueIncrementPerMinute" type="xs:float" use="optional" />
+                  <xs:attribute name="valueDecrementPerMinute" type="xs:float" use="optional" />
+                  <xs:attribute name="maxValue" type="xs:float" use="optional" />
+                  <xs:attribute name="minValue" type="xs:float" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              
             </xs:choice>
           </xs:complexType>
         </xs:element>
@@ -157,6 +169,8 @@
                   <xs:attribute name="granadePowerUpProbability" type="probability" use="optional" />
                   <xs:attribute name="speedRandomVariable" type="xs:string" use="required" />
                   <xs:attribute name="lifeRandomVariable" type="xs:string" use="required" />
+                  <xs:attribute name="maxSimultaneousEnemies" type="xs:string" use="optional" />
+                  <xs:attribute name="maxSecondsWithoutEnemies" type="xs:string" use="optional" />
                 </xs:complexType>
               </xs:element>
               
@@ -174,6 +188,15 @@
                 <xs:complexType>
                   <xs:attributeGroup ref="randomizerAttributes" />
                   <xs:attribute name="durationRandomVariable" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              
+              <!-- elementRegulator -->
+              <xs:element name="elementRegulator" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="elementType" type="xs:string" use="required" />
+                  <xs:attribute name="elementLimiter" type="xs:string" use="optional" />
+                  <xs:attribute name="elementIncreaser" type="xs:string" use="optional" />
                 </xs:complexType>
               </xs:element>
               

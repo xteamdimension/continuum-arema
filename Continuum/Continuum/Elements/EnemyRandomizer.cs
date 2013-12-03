@@ -28,9 +28,9 @@ namespace Continuum.Elements
         /// <param name="lifeRandomVariable">Una variabile aleatoria per la scelta della vita dei nemici</param>
         /// <param name="speedRandomVariable">Una variabile aleatoria per la scelta della velocità dei nemici</param>
         /// <param name="texture">La texture dei nemici lanciati</param>
-        public EnemyRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, float? powerUpProbabilityPerLaunch, float? rocketPowerUpProbability, float? granadePowerUpProbability, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, string weapon, string texture, GameState gameState)
+        public EnemyRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, float? powerUpProbabilityPerLaunch, float? rocketPowerUpProbability, float? granadePowerUpProbability, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, TimeDependentVar maxSimultaneousEnemies, TimeDependentVar maxSecondsWithoutEnemies, string weapon, string texture, GameState gameState)
         {
-            InitializeRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, texture, gameState);
+            InitializeRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, maxSimultaneousEnemies, maxSecondsWithoutEnemies, texture, gameState);
             powerUpProbability = powerUpProbabilityPerLaunch == null ? 0 : powerUpProbabilityPerLaunch.Value;
             rocketProbability = rocketPowerUpProbability == null ? 0 : rocketPowerUpProbability.Value;
             granadeProbability = granadePowerUpProbability == null ? 0 : granadePowerUpProbability.Value;
@@ -43,8 +43,10 @@ namespace Continuum.Elements
 
         public override Vector2 EvaluatePosition(float Delta)
         {
+            // Aggiorna le random variables
             speedRV.Update(Delta);
             lifeRV.Update(Delta);
+
             return base.EvaluatePosition(Delta);
         }
 

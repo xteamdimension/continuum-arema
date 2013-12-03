@@ -139,6 +139,7 @@
     <Compile Include="Utilities\LineRenderer.cs" />
     <Compile Include="Utilities\NormalRandomVariable.cs" />
     <Compile Include="Utilities\QuadraticBezierCurve.cs" />
+    <Compile Include="Utilities\TimeDependentVar.cs" />
     <Compile Include="Utilities\Utilities.cs" />
     <Compile Include="Weapons\Gun.cs" />
     <Compile Include="Weapons\IWeapons.cs" />
