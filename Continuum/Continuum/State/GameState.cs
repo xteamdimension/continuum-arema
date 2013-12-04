@@ -397,7 +397,7 @@ namespace Continuum.State
         /// <param name="texture">La texture degli asteroidi lanciati</param>
         public void newAsteroidRandomizer (float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable ,string texture)
         {
-            this.randomizers.AddLast(new AsteroidRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, speedRandomVariable, lifeRandomVariable, texture, this));
+            this.randomizers.AddLast(new AsteroidRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, speedRandomVariable, lifeRandomVariable, null, null, texture, this));
         }
 
         /// <summary>
@@ -441,7 +441,7 @@ namespace Continuum.State
         /// <param name="texture">La texture dei nemici lanciati</param>
         public void newEnemyRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, float? powerUpProbabilityPerLaunch, float? rocketPowerUpProbability, float? granadePowerUpProbability, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, string weapon, string texture)
         {
-            this.randomizers.AddLast(new EnemyRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, powerUpProbabilityPerLaunch, rocketPowerUpProbability, granadePowerUpProbability, speedRandomVariable, lifeRandomVariable, weapon, texture, this));
+            this.randomizers.AddLast(new EnemyRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, powerUpProbabilityPerLaunch, rocketPowerUpProbability, granadePowerUpProbability, speedRandomVariable, lifeRandomVariable, null, null, weapon, texture, this));
         }
 
         
@@ -455,7 +455,7 @@ namespace Continuum.State
         /// <param name="texture">La SequenceTexture dei TachyonStream lanciati</param>
         public void newTachyonStreamRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable durationRandomVariable, string texture)
         {
-            this.randomizers.AddLast(new TachyonStreamRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, durationRandomVariable, texture, this));
+            this.randomizers.AddLast(new TachyonStreamRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, durationRandomVariable, null, texture, this));
         }
 
         public void SetPlayerBounds()

@@ -1,5 +1,6 @@
 ﻿using Continuum.State;
 using Continuum.Utilities;
+using Microsoft.Xna.Framework;
 
 namespace Continuum.Elements
 {
@@ -21,9 +22,9 @@ namespace Continuum.Elements
         /// <param name="speedRandomVariable">Una variabile aleatoria per la scelta della velocità degli asteroidi</param>
         /// <param name="texture">La texture degli asteroidi lanciati</param>
         /// <param name="gameState">Il Game State</param>
-        public AsteroidRandomizer (float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, string texture, GameState gameState)
+        public AsteroidRandomizer (float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, TimeDependentVar maxSimultaneousAsteroids, TimeDependentVar maxSecondsWithoutAsteroids, string texture, GameState gameState)
         {
-            InitializeRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, texture, gameState);
+            InitializeRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, maxSimultaneousAsteroids, maxSecondsWithoutAsteroids, texture, gameState);
 
             speedRV = speedRandomVariable;
             lifeRV = lifeRandomVariable;
@@ -31,11 +32,22 @@ namespace Continuum.Elements
 
         public AsteroidRandomizer() { }
 
-        public override Microsoft.Xna.Framework.Vector2 EvaluatePosition(float Delta)
+        public override Vector2 EvaluatePosition(float Delta)
         {
             speedRV.Update(Delta);
             lifeRV.Update(Delta);
             return base.EvaluatePosition(Delta);
+        }
+
+        protected override int GetAliveElementsCount()
+        {
+            int count = 0;
+            foreach (Asteroid a in gs.asteroids)
+            {
+                if (a.lifeState == LifeState.DAMAGED || a.lifeState == LifeState.NORMAL)
+                    count++;
+            }
+            return count;
         }
 
         protected override void Launch()

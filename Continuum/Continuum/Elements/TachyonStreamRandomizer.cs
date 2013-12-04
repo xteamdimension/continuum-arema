@@ -21,9 +21,9 @@ namespace Continuum.Elements
         /// <param name="speedRandomVariable">Una variabile aleatoria per la scelta della velocità degli asteroidi</param>
         /// <param name="texture">La texture degli asteroidi lanciati</param>
         /// <param name="gameState">Il Game State</param>
-        public TachyonStreamRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable durationRandomVariable, string texture, GameState gameState)
+        public TachyonStreamRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable durationRandomVariable, TimeDependentVar maxSecondsWithoutTachyonStream, string texture, GameState gameState)
         {
-            InitializeRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, texture, gameState);
+            InitializeRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, new TimeDependentVar(1, null, null, null, null), maxSecondsWithoutTachyonStream, texture, gameState);
 
             durationRV = durationRandomVariable;
         }
@@ -34,6 +34,11 @@ namespace Continuum.Elements
         {
             durationRV.Update(Delta);
             return base.EvaluatePosition(Delta);
+        }
+
+        protected override int GetAliveElementsCount()
+        {
+            return (gs.tachyonStream != null && (gs.tachyonStream.lifeState == LifeState.NORMAL || gs.tachyonStream.lifeState == LifeState.DAMAGED)) ? 1 : 0;
         }
 
         protected override void Launch()

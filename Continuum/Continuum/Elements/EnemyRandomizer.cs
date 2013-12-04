@@ -67,6 +67,18 @@ namespace Continuum.Elements
             gs.newEnemy(new Vector2(Utility.NextRandom(-30, Constants.SCREEN_WIDTH + 30), -50), speedRV.Next(), texture, weapon, (int)lifeRV.Next(), t);
         }
 
+
+        protected override int GetAliveElementsCount()
+        {
+            int count = 0;
+            foreach (Enemy e in gs.enemies)
+            {
+                if (e.lifeState == LifeState.NORMAL || e.lifeState == LifeState.DAMAGED)
+                    count++;
+            }
+            return count;
+        }
+
         public override void HasCollided(int Value, object arg)
         {
 
