@@ -395,9 +395,9 @@ namespace Continuum.State
         /// <param name="lifeRandomVariable">Una variabile aleatoria per la scelta della vita degli asteroidi</param>
         /// <param name="speedRandomVariable">Una variabile aleatoria per la scelta della velocità degli asteroidi</param>
         /// <param name="texture">La texture degli asteroidi lanciati</param>
-        public void newAsteroidRandomizer (float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable ,string texture)
+        public void newAsteroidRandomizer (float probability, float? probabilityIncrementPerMinute, float? probabilityMax, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, TimeDependentVar maxSimultaneousAsteroids, TimeDependentVar maxSecondsWithoutAsteroids, string texture)
         {
-            this.randomizers.AddLast(new AsteroidRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, speedRandomVariable, lifeRandomVariable, null, null, texture, this));
+            this.randomizers.AddLast(new AsteroidRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, speedRandomVariable, lifeRandomVariable, maxSimultaneousAsteroids, maxSecondsWithoutAsteroids, texture, this));
         }
 
         /// <summary>
@@ -439,9 +439,9 @@ namespace Continuum.State
         /// <param name="lifeRandomVariable">Una variabile aleatoria per la scelta della vita dei nemici</param>
         /// <param name="speedRandomVariable">Una variabile aleatoria per la scelta della velocità dei nemici</param>
         /// <param name="texture">La texture dei nemici lanciati</param>
-        public void newEnemyRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, float? powerUpProbabilityPerLaunch, float? rocketPowerUpProbability, float? granadePowerUpProbability, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, string weapon, string texture)
+        public void newEnemyRandomizer(float probability, float? probabilityIncrementPerMinute, float? probabilityMax, float? powerUpProbabilityPerLaunch, float? rocketPowerUpProbability, float? granadePowerUpProbability, DynamicNormalRandomVariable speedRandomVariable, DynamicNormalRandomVariable lifeRandomVariable, TimeDependentVar maxSimultaneousEnemies, TimeDependentVar maxSecondsWithoutEnemies, string weapon, string texture)
         {
-            this.randomizers.AddLast(new EnemyRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, powerUpProbabilityPerLaunch, rocketPowerUpProbability, granadePowerUpProbability, speedRandomVariable, lifeRandomVariable, null, null, weapon, texture, this));
+            this.randomizers.AddLast(new EnemyRandomizer(probability, probabilityIncrementPerMinute, probabilityMax, powerUpProbabilityPerLaunch, rocketPowerUpProbability, granadePowerUpProbability, speedRandomVariable, lifeRandomVariable, maxSimultaneousEnemies, maxSecondsWithoutEnemies, weapon, texture, this));
         }
 
         

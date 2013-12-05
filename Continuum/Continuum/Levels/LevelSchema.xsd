@@ -180,6 +180,8 @@
                   <xs:attributeGroup ref="randomizerAttributes" />
                   <xs:attribute name="speedRandomVariable" type="xs:string" use="required" />
                   <xs:attribute name="lifeRandomVariable" type="xs:string" use="required" />
+                  <xs:attribute name="maxSimultaneousAsteroids" type="xs:string" use="optional" />
+                  <xs:attribute name="maxSecondsWithoutAsteroids" type="xs:string" use="optional" />
                 </xs:complexType>
               </xs:element>
 
@@ -188,15 +190,6 @@
                 <xs:complexType>
                   <xs:attributeGroup ref="randomizerAttributes" />
                   <xs:attribute name="durationRandomVariable" type="xs:string" use="required" />
-                </xs:complexType>
-              </xs:element>
-              
-              <!-- elementRegulator -->
-              <xs:element name="elementRegulator" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:attribute name="elementType" type="xs:string" use="required" />
-                  <xs:attribute name="elementLimiter" type="xs:string" use="optional" />
-                  <xs:attribute name="elementIncreaser" type="xs:string" use="optional" />
                 </xs:complexType>
               </xs:element>
               

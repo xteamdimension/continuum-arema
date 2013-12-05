@@ -15,6 +15,7 @@ namespace Continuum.Management
         private LevelReader myReader;
         private LevelElement element;
         private Dictionary<string, DynamicNormalRandomVariable> randomVariablesDictionary;
+        private Dictionary<string, TimeDependentVar> timeDependentVarsDictionary;
 
         /// <summary>
         /// Titolo del livello corrente
@@ -85,18 +86,34 @@ namespace Continuum.Management
             else return;
             
             randomVariablesDictionary = new Dictionary<string,DynamicNormalRandomVariable>();
+            timeDependentVarsDictionary = new Dictionary<string, TimeDependentVar>();
 
-            while (element.Name == "randomVariable")
+            while (element.Name == "randomVariable" || element.Name == "timeDependentVar")
             {
-                string id = element.Attribute("id");
-                float mean = Utility.StringToFloat(element.Attribute("mean"));
-                float standardDeviation = Utility.StringToFloat(element.Attribute("standardDeviation"));
-                float? meanIncrementPerMinute = element.Attribute("meanIncrementPerMinute") == null ? null : (float?)Utility.StringToFloat(element.Attribute("meanIncrementPerMinute"));
-                float? maxValue = element.Attribute("maxValue") == null ? null : (float?)Utility.StringToFloat(element.Attribute("maxValue"));
-                float? minValue = element.Attribute("minValue") == null ? null : (float?)Utility.StringToFloat(element.Attribute("minValue"));
-                randomVariablesDictionary.Add(id, new DynamicNormalRandomVariable(mean, standardDeviation, meanIncrementPerMinute, maxValue, minValue));
-                myReader.MoveNext();
-                element = myReader.Current;
+                if (element.Name == "randomVariable")
+                {
+                    string id = element.Attribute("id");
+                    float mean = Utility.StringToFloat(element.Attribute("mean"));
+                    float standardDeviation = Utility.StringToFloat(element.Attribute("standardDeviation"));
+                    float? meanIncrementPerMinute = element.Attribute("meanIncrementPerMinute") == null ? null : (float?)Utility.StringToFloat(element.Attribute("meanIncrementPerMinute"));
+                    float? maxValue = element.Attribute("maxValue") == null ? null : (float?)Utility.StringToFloat(element.Attribute("maxValue"));
+                    float? minValue = element.Attribute("minValue") == null ? null : (float?)Utility.StringToFloat(element.Attribute("minValue"));
+                    randomVariablesDictionary.Add(id, new DynamicNormalRandomVariable(mean, standardDeviation, meanIncrementPerMinute, maxValue, minValue));
+                    myReader.MoveNext();
+                    element = myReader.Current;
+                }
+                else if (element.Name == "timeDependentVar")
+                {
+                    string id = element.Attribute("id");
+                    float initialValue = Utility.StringToFloat(element.Attribute("initialValue"));
+                    float? valueIncrementPerMinute = element.Attribute("valueIncrementPerMinute") == null ? null : (float?)Utility.StringToFloat(element.Attribute("valueIncrementPerMinute"));
+                    float? valueDecrementPerMinute = element.Attribute("valueDecrementPerMinute") == null ? null : (float?)Utility.StringToFloat(element.Attribute("valueDecrementPerMinute"));
+                    float? maxValue = element.Attribute("maxValue") == null ? null : (float?)Utility.StringToFloat(element.Attribute("maxValue"));
+                    float? minValue = element.Attribute("minValue") == null ? null : (float?)Utility.StringToFloat(element.Attribute("minValue"));
+                    timeDependentVarsDictionary.Add(id, new TimeDependentVar(initialValue, maxValue, minValue, valueIncrementPerMinute, valueDecrementPerMinute));
+                    myReader.MoveNext();
+                    element = myReader.Current;
+                }
             }
         }
 
@@ -163,9 +180,15 @@ namespace Continuum.Management
                                 float? probabilityMaxA = element.Attribute("probabilityMax") == null ? null : (float?)Utility.StringToFloat(element.Attribute("probabilityMax"));
                                 DynamicNormalRandomVariable speedRVA;
                                 DynamicNormalRandomVariable lifeRVA;
+                                TimeDependentVar maxSimultaneousAsteroids = null;
+                                TimeDependentVar maxSecondsWithoutAsteroids = null;
                                 randomVariablesDictionary.TryGetValue(element.Attribute("speedRandomVariable"), out speedRVA);
                                 randomVariablesDictionary.TryGetValue(element.Attribute("lifeRandomVariable"), out lifeRVA);
-                                gs.newAsteroidRandomizer(probabilityA, probabilityIncrementPerMinuteA, probabilityMaxA, speedRVA, lifeRVA, element.Attribute("texture"));
+                                if(element.Attribute("maxSimultaneousAsteroids") != null)
+                                    timeDependentVarsDictionary.TryGetValue(element.Attribute("maxSimultaneousAsteroids"), out maxSimultaneousAsteroids);
+                                if (element.Attribute("maxSecondsWithoutAsteroids") != null)
+                                    timeDependentVarsDictionary.TryGetValue(element.Attribute("maxSecondsWithoutAsteroids"), out maxSecondsWithoutAsteroids);
+                                gs.newAsteroidRandomizer(probabilityA, probabilityIncrementPerMinuteA, probabilityMaxA, speedRVA, lifeRVA, maxSimultaneousAsteroids, maxSecondsWithoutAsteroids, element.Attribute("texture"));
                                 break;
                             case "enemyRandomizer":
                                 float probabilityE = Utility.StringToFloat(element.Attribute("launchProbabilityPerSecond"));
@@ -176,9 +199,15 @@ namespace Continuum.Management
                                 float? granadePowerUpProbability = element.Attribute("granadePowerUpProbability") == null ? null : (float?)Utility.StringToFloat(element.Attribute("granadePowerUpProbability"));
                                 DynamicNormalRandomVariable speedRVE;
                                 DynamicNormalRandomVariable lifeRVE;
+                                TimeDependentVar maxSimultaneousEnemies = null;
+                                TimeDependentVar maxSecondsWithoutEnemies = null;
                                 randomVariablesDictionary.TryGetValue(element.Attribute("speedRandomVariable"), out speedRVE);
                                 randomVariablesDictionary.TryGetValue(element.Attribute("lifeRandomVariable"), out lifeRVE);
-                                gs.newEnemyRandomizer(probabilityE, probabilityIncrementPerMinuteE, probabilityMaxE, powerUpProbabilityPerLaunch, rocketPowerUpProbability, granadePowerUpProbability, speedRVE, lifeRVE, element.Attribute("weapon"), element.Attribute("texture"));
+                                if(element.Attribute("maxSimultaneousEnemies") != null)
+                                    timeDependentVarsDictionary.TryGetValue(element.Attribute("maxSimultaneousEnemies"), out maxSimultaneousEnemies);
+                                if (element.Attribute("maxSecondsWithoutEnemies") != null)
+                                    timeDependentVarsDictionary.TryGetValue(element.Attribute("maxSecondsWithoutEnemies"), out maxSecondsWithoutEnemies);
+                                gs.newEnemyRandomizer(probabilityE, probabilityIncrementPerMinuteE, probabilityMaxE, powerUpProbabilityPerLaunch, rocketPowerUpProbability, granadePowerUpProbability, speedRVE, lifeRVE, maxSimultaneousEnemies, maxSecondsWithoutEnemies, element.Attribute("weapon"), element.Attribute("texture"));
                                 break;
                             case "tachyonStreamRandomizer":
                                 float probabilityT = Utility.StringToFloat(element.Attribute("launchProbabilityPerSecond"));

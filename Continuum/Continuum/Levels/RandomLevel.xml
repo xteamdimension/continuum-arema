@@ -62,7 +62,6 @@
                      lifeRandomVariable="enemyNormalLife" speedRandomVariable="enemyNormalSpeed" pobabilityMax="0.8"
                      maxSimultaneousEnemies="maxSimultaneousEnemies" maxSecondsWithoutEnemies="maxSecondsWithoutEnemies" />
     <tachyonStreamRandomizer timestamp="20" texture="tachyonstream" launchProbabilityPerSecond="0.1" durationRandomVariable="tachyonStreamDuration" />
-    <elementRegulator elementType="enemy" elementIncreaser="enemyIncreaser" elementLimiter="enemyLimiter" />
   </startlevel>
   <endlevel />
 </level>
