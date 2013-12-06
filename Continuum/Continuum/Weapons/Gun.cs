@@ -8,11 +8,11 @@ namespace Continuum.Weapons
 {
     public class Gun : IWeapons
     {
-        public float elapsedTime;
         public float lastShotTime;
         public bool player; //Indica se l'istanza di quest'arma è del giocatore o di un nemico.
         public int level;
         public float startTime;
+        public float levelStartTime; //Indica il momento in cui l'arma è giunta al livello corrente
         public GameState gs;
         public TimeMachine ownerTime;
 
@@ -22,7 +22,6 @@ namespace Continuum.Weapons
         /// <param name="player">Indica se l'arma appena creata è del giocatore o di un nemico</param>
         public Gun(bool player, GameState gameState)
         {
-            elapsedTime = 0;
             gs = gameState;
             lastShotTime = startTime;
             this.player = player;
@@ -37,6 +36,7 @@ namespace Continuum.Weapons
                 this.ownerTime = gs.levelTime;
             }
             startTime = ownerTime.time;
+            levelStartTime = ownerTime.time;
         }
 
         public Gun() { }
@@ -47,9 +47,12 @@ namespace Continuum.Weapons
         /// <param name="position">Posizione del proprietario di quest'arma</param>
         public void Update(Vector2 position)
         {
-            elapsedTime = (ownerTime.time - startTime);
             if (!gs.pause && ownerTime.continuum > 0)
             {
+                if (ownerTime.time - levelStartTime > GetLevelDuration(Level))
+                {
+                    Upgrade(-1);
+                }
                 if (ownerTime.time - lastShotTime >= GetTimeForShooting(Level))
                 {
                     int y;
@@ -162,9 +165,33 @@ namespace Continuum.Weapons
             }
         }
 
+        public float GetLevelDuration(int level)
+        {
+            switch (level)
+            {
+                case -1:
+                    return float.MaxValue;
+                case 1:
+                    return float.MaxValue;
+                case 2:
+                    return 30;
+                case 3:
+                    return 25;
+                case 4:
+                    return 20;
+                case 5:
+                    return 15;
+                case 6:
+                    return 10;
+                default:
+                    throw new Exception("Il numero di livello specificato (" + level + ") è inesistente per l'arma Gun");
+            }
+        }
+
         public bool Upgrade(int numOfLevels)
         {
             level = level + numOfLevels;
+            levelStartTime = ownerTime.time;
             if (level > MaxLevel)
                 level = MaxLevel;
             if (level < MinLevel)

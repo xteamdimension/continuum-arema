@@ -63,5 +63,12 @@ namespace Continuum.Weapons
         /// <param name="level">Il livello di potenziamento</param>
         /// <returns></returns>
         float GetTimeForShooting(int level);
+
+        /// <summary>
+        /// Restituisce la durata del livello corrente dell'arma. Una volta scaduto questo tempo, l'arma subisce un downgrade 
+        /// </summary>
+        /// <param name="level">Il livello di potenziamento</param>
+        /// <returns></returns>
+        float GetLevelDuration(int level);
     }
 }

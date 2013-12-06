@@ -471,11 +471,13 @@ namespace Continuum.State
             {
                 PlayerLife -= damage;
                 VibrateController.Default.Start(new TimeSpan(0, 0, 0, 0, damage * 50));
-                playerGun.Upgrade(-gunDowngrade);
-                if (playerRocketLauncher.Level > 0)
-                    playerRocketLauncher.Upgrade(-rocketLauncherDowngrade);
-                else
-                    playerGun.Upgrade(-rocketLauncherDowngrade);
+
+                // COMMENTATO PERCHE' ORA I POWEUP SONO A TEMPO. LE ARMI NON VENGONO DEPOTENZIATE PER IL DANNEGGIAMENTO
+                //playerGun.Upgrade(-gunDowngrade);
+                //if (playerRocketLauncher.Level > 0)
+                //    playerRocketLauncher.Upgrade(-rocketLauncherDowngrade);
+                //else
+                //    playerGun.Upgrade(-rocketLauncherDowngrade);
             }
         }
     }
